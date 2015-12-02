@@ -40,6 +40,7 @@ void Window::initialize(void)
     setup.makeScale((16.37 * objtan)/Globals::volcano.halfSizeMAX);
     Globals::volcano.toWorld = setup.multiply(Globals::volcano.toWorld);
     
+    Globals::volcano.initTextures();
 
 }
 

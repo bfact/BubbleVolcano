@@ -110,6 +110,7 @@
 		DF15DC2B1BE3FE2F00EEA3BA /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = SOURCE_ROOT; };
 		DF15DC431BE3FE7700EEA3BA /* SpotLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotLight.cpp; sourceTree = SOURCE_ROOT; };
 		DF15DC441BE3FE7700EEA3BA /* SpotLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotLight.h; sourceTree = SOURCE_ROOT; };
+		DF1AA5CA1C0FAAE1001CAACD /* lavacracks.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = lavacracks.ppm; sourceTree = "<group>"; };
 		DF5334531BE9998500B473E8 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = SOURCE_ROOT; };
 		DF5334541BE9998500B473E8 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = SOURCE_ROOT; };
 		DF5334571BE9AC8600B473E8 /* Group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Group.cpp; sourceTree = SOURCE_ROOT; };
@@ -147,6 +148,8 @@
 			children = (
 				DF7A61401BFF931A00F15CF5 /* flag.vert */,
 				DF7A61411BFF932800F15CF5 /* flag.frag */,
+				DF1AA5CA1C0FAAE1001CAACD /* lavacracks.ppm */,
+				DF6AB2181C0E9DBE00D83E7C /* BubbleVolcano.obj */,
 				D42FFC201AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */,
 				DF15DC1D1BE3FE2F00EEA3BA /* README.md */,
 				D42FFC361AAFCDA0006F8E9C /* OpenGL.framework */,
@@ -167,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				DF07AFBF1BF28E0600A7919F /* Texture */,
-				DF6AB2181C0E9DBE00D83E7C /* BubbleVolcano.obj */,
 				DF15DC121BE3FE2F00EEA3BA /* main.cpp */,
 				DF15DC001BE3FE2F00EEA3BA /* Camera.cpp */,
 				DF15DC011BE3FE2F00EEA3BA /* Camera.h */,
@@ -175,16 +177,18 @@
 				DF15DC0D1BE3FE2F00EEA3BA /* Globals.h */,
 				DF15DC131BE3FE2F00EEA3BA /* Material.cpp */,
 				DF15DC141BE3FE2F00EEA3BA /* Material.h */,
+				DF15DC191BE3FE2F00EEA3BA /* OBJObject.cpp */,
+				DF15DC1A1BE3FE2F00EEA3BA /* OBJObject.h */,
 				DF15DC1E1BE3FE2F00EEA3BA /* Shader.cpp */,
 				DF15DC1F1BE3FE2F00EEA3BA /* Shader.h */,
 				DF15DC221BE3FE2F00EEA3BA /* Texture.cpp */,
 				DF15DC231BE3FE2F00EEA3BA /* Texture.h */,
 				DF15DC2A1BE3FE2F00EEA3BA /* Window.cpp */,
 				DF15DC2B1BE3FE2F00EEA3BA /* Window.h */,
+				DF94954B1BEE9A2D0096368C /* Objects */,
 				DF94954C1BEE9A8D0096368C /* Data */,
 				DF94954D1BEE9AC80096368C /* Math */,
 				DF15DC461BE3FE8500EEA3BA /* Lights */,
-				DF94954B1BEE9A2D0096368C /* Objects */,
 				DF5334561BE9AC3E00B473E8 /* Scene Graph */,
 			);
 			path = "CSE167 Spring 2015 Starter Code";
@@ -247,8 +251,6 @@
 				DF15DC051BE3FE2F00EEA3BA /* Cube.h */,
 				DF15DC0E1BE3FE2F00EEA3BA /* House.cpp */,
 				DF15DC0F1BE3FE2F00EEA3BA /* House.h */,
-				DF15DC191BE3FE2F00EEA3BA /* OBJObject.cpp */,
-				DF15DC1A1BE3FE2F00EEA3BA /* OBJObject.h */,
 				DF15DC201BE3FE2F00EEA3BA /* Sphere.cpp */,
 				DF15DC211BE3FE2F00EEA3BA /* Sphere.h */,
 			);

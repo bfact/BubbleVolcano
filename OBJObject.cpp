@@ -21,6 +21,9 @@
                                    delete __vect__;\
                                } while(false)
 
+#define LAVACRACKS "/Users/BrittanyFactura/GitHub/bubblevolcano/lavacracks.ppm"
+
+using namespace std;
 
 OBJObject::OBJObject(std::string filename) : Drawable()
 {
@@ -93,18 +96,10 @@ void OBJObject::draw(DrawData& data)
     glPushMatrix();
     glMultMatrixf(toWorld.ptr());
     
+    cout << "Starting draw" << endl;
+    
+    lavacracks.bind();
     glBegin(GL_TRIANGLES);
-    
-    
-    //Loop through the faces
-    //For each face:
-    //  Look up the vertices, normals (if they exist), and texcoords (if they exist)
-    //  Draw them as triplets:
-    
-    //      glNorm(normals->at(face.normalIndices[0]))
-    //      glVert(vertices->at(face.vertexIndices[0]))
-    //      Etc.
-    //
     
     for (int i = 0; i < faces->size(); i++) {
         face = faces->at(i);
@@ -112,21 +107,28 @@ void OBJObject::draw(DrawData& data)
             Vector3 vn = *normals->at(face->normalIndices[j]);
             vn = vn.normalize();
             glNormal3f(vn[0], vn[1], vn[2]);
-            
             if (color) {
                 Vector3 c = *colors->at(face->vertexIndices[j]);
 //                glColor4f(c[0], c[1], c[2], 0.5);
-                glColor4f(1.0, 1.0, 1.0, 1.0);
+                glColor4f(1.0, 1.0, 1.0, 0.0);
             }
-
             Vector3 v  = *vertices->at(face->vertexIndices[j]);
-            glVertex3f(v[0], v[1], v[2]);
-
+            if (j == 0) {
+                glTexCoord2f(0.0, 0.0); glVertex3f(v[0], v[1], v[2]);
+            }
+            else if (j == 1) {
+                glTexCoord2f(1.0, 0.0); glVertex3f(v[0], v[1], v[2]);
+            }
+            else if (j == 2) {
+                glTexCoord2f(0.5, 1.0); glVertex3f(v[0], v[1], v[2]);
+            }
         }
     }
-
     
     glEnd();
+    lavacracks.unbind();
+    
+    cout << "Finished draw" << endl;
     
     glPopMatrix();
 }
@@ -269,6 +271,11 @@ void OBJObject::getHalfSize()
     float halfSizeY = (maxY - minY)/2;
     float halfSizeZ = (maxZ - minZ)/2;
     halfSizeMAX = fmax(fmax(halfSizeX, halfSizeY), halfSizeZ);
+}
+
+void OBJObject::initTextures()
+{
+    lavacracks = Texture(LAVACRACKS);
 }
 
 //Split functions from the interwebs

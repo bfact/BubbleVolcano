@@ -1,5 +1,5 @@
 #include "Globals.h"
-#define VOLCANO "/Users/BrittanyFactura/Desktop/Fall Quarter/CSE 167/projects/final project/BubbleVolcano.obj"
+#define VOLCANO "/Users/BrittanyFactura/Github/bubblevolcano/BubbleVolcano.obj"
 #define VOLCANOSEAN "/Users/seanwenzel/Github/bubblevolcano/BubbleVolcano.obj"
 
 
@@ -25,7 +25,7 @@ UpdateData Globals::updateData;
 //OBJObject Globals::bear("/Users/BrittanyFactura/Desktop/Fall\ Quarter/CSE\ 167/project\ 1/bear.obj");
 
 
-OBJObject Globals::volcano(VOLCANOSEAN);
+OBJObject Globals::volcano(VOLCANO);
 
 Drawable *Globals::objdraw = &volcano;
 

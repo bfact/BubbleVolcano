@@ -6,6 +6,7 @@
 #include <string>
 #include "Vector3.h"
 #include "Drawable.h"
+#include "Texture.h"
 
 struct Face
 {
@@ -57,6 +58,9 @@ public:
     virtual void update(UpdateData&);
     float halfSizeMAX = 0;
     
+    //final project
+    Texture lavacracks;
+    void initTextures(void);
 };
 
 #endif
