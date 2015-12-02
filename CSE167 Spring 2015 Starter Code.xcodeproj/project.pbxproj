@@ -1,0 +1,483 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D42FFC351AAFCD9A006F8E9C /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42FFC341AAFCD9A006F8E9C /* GLUT.framework */; };
+		D42FFC371AAFCDA0006F8E9C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42FFC361AAFCDA0006F8E9C /* OpenGL.framework */; };
+		DF07AFC21BF28E3300A7919F /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF07AFC01BF28E3300A7919F /* Skybox.cpp */; };
+		DF07B0991BF324B100A7919F /* BezierCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF07B0971BF324B100A7919F /* BezierCurve.cpp */; };
+		DF15DC2C1BE3FE2F00EEA3BA /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC001BE3FE2F00EEA3BA /* Camera.cpp */; };
+		DF15DC2D1BE3FE2F00EEA3BA /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC021BE3FE2F00EEA3BA /* Color.cpp */; };
+		DF15DC2E1BE3FE2F00EEA3BA /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC041BE3FE2F00EEA3BA /* Cube.cpp */; };
+		DF15DC2F1BE3FE2F00EEA3BA /* DirectionalLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC061BE3FE2F00EEA3BA /* DirectionalLight.cpp */; };
+		DF15DC301BE3FE2F00EEA3BA /* Drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC081BE3FE2F00EEA3BA /* Drawable.cpp */; };
+		DF15DC311BE3FE2F00EEA3BA /* DrawData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC0A1BE3FE2F00EEA3BA /* DrawData.cpp */; };
+		DF15DC321BE3FE2F00EEA3BA /* Globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC0C1BE3FE2F00EEA3BA /* Globals.cpp */; };
+		DF15DC331BE3FE2F00EEA3BA /* House.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC0E1BE3FE2F00EEA3BA /* House.cpp */; };
+		DF15DC341BE3FE2F00EEA3BA /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC101BE3FE2F00EEA3BA /* Light.cpp */; };
+		DF15DC351BE3FE2F00EEA3BA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC121BE3FE2F00EEA3BA /* main.cpp */; };
+		DF15DC361BE3FE2F00EEA3BA /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC131BE3FE2F00EEA3BA /* Material.cpp */; };
+		DF15DC371BE3FE2F00EEA3BA /* MathTestBench.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC151BE3FE2F00EEA3BA /* MathTestBench.cpp */; };
+		DF15DC381BE3FE2F00EEA3BA /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC171BE3FE2F00EEA3BA /* Matrix4.cpp */; };
+		DF15DC391BE3FE2F00EEA3BA /* OBJObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC191BE3FE2F00EEA3BA /* OBJObject.cpp */; };
+		DF15DC3A1BE3FE2F00EEA3BA /* PointLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC1B1BE3FE2F00EEA3BA /* PointLight.cpp */; };
+		DF15DC3B1BE3FE2F00EEA3BA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC1D1BE3FE2F00EEA3BA /* README.md */; };
+		DF15DC3C1BE3FE2F00EEA3BA /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC1E1BE3FE2F00EEA3BA /* Shader.cpp */; };
+		DF15DC3D1BE3FE2F00EEA3BA /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC201BE3FE2F00EEA3BA /* Sphere.cpp */; };
+		DF15DC3E1BE3FE2F00EEA3BA /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC221BE3FE2F00EEA3BA /* Texture.cpp */; };
+		DF15DC3F1BE3FE2F00EEA3BA /* UpdateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC241BE3FE2F00EEA3BA /* UpdateData.cpp */; };
+		DF15DC401BE3FE2F00EEA3BA /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC261BE3FE2F00EEA3BA /* Vector3.cpp */; };
+		DF15DC411BE3FE2F00EEA3BA /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC281BE3FE2F00EEA3BA /* Vector4.cpp */; };
+		DF15DC421BE3FE2F00EEA3BA /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC2A1BE3FE2F00EEA3BA /* Window.cpp */; };
+		DF15DC451BE3FE7700EEA3BA /* SpotLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF15DC431BE3FE7700EEA3BA /* SpotLight.cpp */; };
+		DF5334551BE9998500B473E8 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF5334531BE9998500B473E8 /* Node.cpp */; };
+		DF5334591BE9AC8600B473E8 /* Group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF5334571BE9AC8600B473E8 /* Group.cpp */; };
+		DF53345C1BE9ACBE00B473E8 /* MatrixTransform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF53345A1BE9ACBE00B473E8 /* MatrixTransform.cpp */; };
+		DF53345F1BE9ACDB00B473E8 /* Geode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF53345D1BE9ACDB00B473E8 /* Geode.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D42FFC1C1AAFC90E006F8E9C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D42FFC1E1AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CSE167 Spring 2015 Starter Code"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D42FFC341AAFCD9A006F8E9C /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		D42FFC361AAFCDA0006F8E9C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		DF07AFC01BF28E3300A7919F /* Skybox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Skybox.cpp; sourceTree = SOURCE_ROOT; };
+		DF07AFC11BF28E3300A7919F /* Skybox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skybox.h; sourceTree = SOURCE_ROOT; };
+		DF07B0971BF324B100A7919F /* BezierCurve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BezierCurve.cpp; sourceTree = SOURCE_ROOT; };
+		DF07B0981BF324B100A7919F /* BezierCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierCurve.h; sourceTree = SOURCE_ROOT; };
+		DF07B0AD1BF459A100A7919F /* Ucsd-logo.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Ucsd-logo.ppm"; sourceTree = SOURCE_ROOT; };
+		DF15DBFE1BE3FE2F00EEA3BA /* bear.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bear.obj; sourceTree = SOURCE_ROOT; };
+		DF15DBFF1BE3FE2F00EEA3BA /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.obj; sourceTree = SOURCE_ROOT; };
+		DF15DC001BE3FE2F00EEA3BA /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC011BE3FE2F00EEA3BA /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = SOURCE_ROOT; };
+		DF15DC021BE3FE2F00EEA3BA /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC031BE3FE2F00EEA3BA /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = SOURCE_ROOT; };
+		DF15DC041BE3FE2F00EEA3BA /* Cube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC051BE3FE2F00EEA3BA /* Cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = SOURCE_ROOT; };
+		DF15DC061BE3FE2F00EEA3BA /* DirectionalLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectionalLight.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC071BE3FE2F00EEA3BA /* DirectionalLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionalLight.h; sourceTree = SOURCE_ROOT; };
+		DF15DC081BE3FE2F00EEA3BA /* Drawable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Drawable.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC091BE3FE2F00EEA3BA /* Drawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawable.h; sourceTree = SOURCE_ROOT; };
+		DF15DC0A1BE3FE2F00EEA3BA /* DrawData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawData.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC0B1BE3FE2F00EEA3BA /* DrawData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawData.h; sourceTree = SOURCE_ROOT; };
+		DF15DC0C1BE3FE2F00EEA3BA /* Globals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Globals.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC0D1BE3FE2F00EEA3BA /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = SOURCE_ROOT; };
+		DF15DC0E1BE3FE2F00EEA3BA /* House.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = House.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC0F1BE3FE2F00EEA3BA /* House.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = House.h; sourceTree = SOURCE_ROOT; };
+		DF15DC101BE3FE2F00EEA3BA /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC111BE3FE2F00EEA3BA /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = SOURCE_ROOT; };
+		DF15DC121BE3FE2F00EEA3BA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC131BE3FE2F00EEA3BA /* Material.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Material.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC141BE3FE2F00EEA3BA /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = SOURCE_ROOT; };
+		DF15DC151BE3FE2F00EEA3BA /* MathTestBench.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathTestBench.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC161BE3FE2F00EEA3BA /* MathTestBench.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathTestBench.h; sourceTree = SOURCE_ROOT; };
+		DF15DC171BE3FE2F00EEA3BA /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC181BE3FE2F00EEA3BA /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = SOURCE_ROOT; };
+		DF15DC191BE3FE2F00EEA3BA /* OBJObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OBJObject.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC1A1BE3FE2F00EEA3BA /* OBJObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBJObject.h; sourceTree = SOURCE_ROOT; };
+		DF15DC1B1BE3FE2F00EEA3BA /* PointLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointLight.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC1C1BE3FE2F00EEA3BA /* PointLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointLight.h; sourceTree = SOURCE_ROOT; };
+		DF15DC1D1BE3FE2F00EEA3BA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		DF15DC1E1BE3FE2F00EEA3BA /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC1F1BE3FE2F00EEA3BA /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = SOURCE_ROOT; };
+		DF15DC201BE3FE2F00EEA3BA /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC211BE3FE2F00EEA3BA /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = SOURCE_ROOT; };
+		DF15DC221BE3FE2F00EEA3BA /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC231BE3FE2F00EEA3BA /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = SOURCE_ROOT; };
+		DF15DC241BE3FE2F00EEA3BA /* UpdateData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateData.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC251BE3FE2F00EEA3BA /* UpdateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateData.h; sourceTree = SOURCE_ROOT; };
+		DF15DC261BE3FE2F00EEA3BA /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC271BE3FE2F00EEA3BA /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = SOURCE_ROOT; };
+		DF15DC281BE3FE2F00EEA3BA /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC291BE3FE2F00EEA3BA /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector4.h; sourceTree = SOURCE_ROOT; };
+		DF15DC2A1BE3FE2F00EEA3BA /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC2B1BE3FE2F00EEA3BA /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = SOURCE_ROOT; };
+		DF15DC431BE3FE7700EEA3BA /* SpotLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotLight.cpp; sourceTree = SOURCE_ROOT; };
+		DF15DC441BE3FE7700EEA3BA /* SpotLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotLight.h; sourceTree = SOURCE_ROOT; };
+		DF5334531BE9998500B473E8 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = SOURCE_ROOT; };
+		DF5334541BE9998500B473E8 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = SOURCE_ROOT; };
+		DF5334571BE9AC8600B473E8 /* Group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Group.cpp; sourceTree = SOURCE_ROOT; };
+		DF5334581BE9AC8600B473E8 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = SOURCE_ROOT; };
+		DF53345A1BE9ACBE00B473E8 /* MatrixTransform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixTransform.cpp; sourceTree = SOURCE_ROOT; };
+		DF53345B1BE9ACBE00B473E8 /* MatrixTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixTransform.h; sourceTree = SOURCE_ROOT; };
+		DF53345D1BE9ACDB00B473E8 /* Geode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geode.cpp; sourceTree = SOURCE_ROOT; };
+		DF53345E1BE9ACDB00B473E8 /* Geode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geode.h; sourceTree = SOURCE_ROOT; };
+		DF6AB2181C0E9DBE00D83E7C /* BubbleVolcano.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BubbleVolcano.obj; sourceTree = SOURCE_ROOT; };
+		DF70C4611BEEC7D8008545B7 /* spires_bk.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_bk.ppm; sourceTree = SOURCE_ROOT; };
+		DF70C4621BEEC7D8008545B7 /* spires_dn.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_dn.ppm; sourceTree = SOURCE_ROOT; };
+		DF70C4631BEEC7D8008545B7 /* spires_ft.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_ft.ppm; sourceTree = SOURCE_ROOT; };
+		DF70C4641BEEC7D8008545B7 /* spires_lf.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_lf.ppm; sourceTree = SOURCE_ROOT; };
+		DF70C4651BEEC7D8008545B7 /* spires_rt.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_rt.ppm; sourceTree = SOURCE_ROOT; };
+		DF70C4661BEEC7D8008545B7 /* spires_up.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_up.ppm; sourceTree = SOURCE_ROOT; };
+		DF7A61401BFF931A00F15CF5 /* flag.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = flag.vert; sourceTree = "<group>"; };
+		DF7A61411BFF932800F15CF5 /* flag.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = flag.frag; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D42FFC1B1AAFC90E006F8E9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D42FFC371AAFCDA0006F8E9C /* OpenGL.framework in Frameworks */,
+				D42FFC351AAFCD9A006F8E9C /* GLUT.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D42FFC151AAFC90E006F8E9C = {
+			isa = PBXGroup;
+			children = (
+				DF7A61401BFF931A00F15CF5 /* flag.vert */,
+				DF7A61411BFF932800F15CF5 /* flag.frag */,
+				D42FFC201AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */,
+				DF15DC1D1BE3FE2F00EEA3BA /* README.md */,
+				D42FFC361AAFCDA0006F8E9C /* OpenGL.framework */,
+				D42FFC341AAFCD9A006F8E9C /* GLUT.framework */,
+				D42FFC1F1AAFC90E006F8E9C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D42FFC1F1AAFC90E006F8E9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D42FFC1E1AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D42FFC201AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */ = {
+			isa = PBXGroup;
+			children = (
+				DF07AFBF1BF28E0600A7919F /* Texture */,
+				DF6AB2181C0E9DBE00D83E7C /* BubbleVolcano.obj */,
+				DF15DC121BE3FE2F00EEA3BA /* main.cpp */,
+				DF15DC001BE3FE2F00EEA3BA /* Camera.cpp */,
+				DF15DC011BE3FE2F00EEA3BA /* Camera.h */,
+				DF15DC0C1BE3FE2F00EEA3BA /* Globals.cpp */,
+				DF15DC0D1BE3FE2F00EEA3BA /* Globals.h */,
+				DF15DC131BE3FE2F00EEA3BA /* Material.cpp */,
+				DF15DC141BE3FE2F00EEA3BA /* Material.h */,
+				DF15DC1E1BE3FE2F00EEA3BA /* Shader.cpp */,
+				DF15DC1F1BE3FE2F00EEA3BA /* Shader.h */,
+				DF15DC221BE3FE2F00EEA3BA /* Texture.cpp */,
+				DF15DC231BE3FE2F00EEA3BA /* Texture.h */,
+				DF15DC2A1BE3FE2F00EEA3BA /* Window.cpp */,
+				DF15DC2B1BE3FE2F00EEA3BA /* Window.h */,
+				DF94954C1BEE9A8D0096368C /* Data */,
+				DF94954D1BEE9AC80096368C /* Math */,
+				DF15DC461BE3FE8500EEA3BA /* Lights */,
+				DF94954B1BEE9A2D0096368C /* Objects */,
+				DF5334561BE9AC3E00B473E8 /* Scene Graph */,
+			);
+			path = "CSE167 Spring 2015 Starter Code";
+			sourceTree = "<group>";
+		};
+		DF07AFBF1BF28E0600A7919F /* Texture */ = {
+			isa = PBXGroup;
+			children = (
+				DF07B0971BF324B100A7919F /* BezierCurve.cpp */,
+				DF07B0981BF324B100A7919F /* BezierCurve.h */,
+				DF07AFC01BF28E3300A7919F /* Skybox.cpp */,
+				DF07AFC11BF28E3300A7919F /* Skybox.h */,
+				DF07B0AD1BF459A100A7919F /* Ucsd-logo.ppm */,
+				DF70C4611BEEC7D8008545B7 /* spires_bk.ppm */,
+				DF70C4621BEEC7D8008545B7 /* spires_dn.ppm */,
+				DF70C4631BEEC7D8008545B7 /* spires_ft.ppm */,
+				DF70C4641BEEC7D8008545B7 /* spires_lf.ppm */,
+				DF70C4651BEEC7D8008545B7 /* spires_rt.ppm */,
+				DF70C4661BEEC7D8008545B7 /* spires_up.ppm */,
+			);
+			name = Texture;
+			sourceTree = "<group>";
+		};
+		DF15DC461BE3FE8500EEA3BA /* Lights */ = {
+			isa = PBXGroup;
+			children = (
+				DF15DC101BE3FE2F00EEA3BA /* Light.cpp */,
+				DF15DC111BE3FE2F00EEA3BA /* Light.h */,
+				DF15DC061BE3FE2F00EEA3BA /* DirectionalLight.cpp */,
+				DF15DC071BE3FE2F00EEA3BA /* DirectionalLight.h */,
+				DF15DC1B1BE3FE2F00EEA3BA /* PointLight.cpp */,
+				DF15DC1C1BE3FE2F00EEA3BA /* PointLight.h */,
+				DF15DC431BE3FE7700EEA3BA /* SpotLight.cpp */,
+				DF15DC441BE3FE7700EEA3BA /* SpotLight.h */,
+			);
+			name = Lights;
+			sourceTree = "<group>";
+		};
+		DF5334561BE9AC3E00B473E8 /* Scene Graph */ = {
+			isa = PBXGroup;
+			children = (
+				DF5334531BE9998500B473E8 /* Node.cpp */,
+				DF5334541BE9998500B473E8 /* Node.h */,
+				DF5334571BE9AC8600B473E8 /* Group.cpp */,
+				DF5334581BE9AC8600B473E8 /* Group.h */,
+				DF53345D1BE9ACDB00B473E8 /* Geode.cpp */,
+				DF53345E1BE9ACDB00B473E8 /* Geode.h */,
+				DF53345A1BE9ACBE00B473E8 /* MatrixTransform.cpp */,
+				DF53345B1BE9ACBE00B473E8 /* MatrixTransform.h */,
+			);
+			name = "Scene Graph";
+			sourceTree = "<group>";
+		};
+		DF94954B1BEE9A2D0096368C /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				DF15DBFE1BE3FE2F00EEA3BA /* bear.obj */,
+				DF15DBFF1BE3FE2F00EEA3BA /* bunny.obj */,
+				DF15DC041BE3FE2F00EEA3BA /* Cube.cpp */,
+				DF15DC051BE3FE2F00EEA3BA /* Cube.h */,
+				DF15DC0E1BE3FE2F00EEA3BA /* House.cpp */,
+				DF15DC0F1BE3FE2F00EEA3BA /* House.h */,
+				DF15DC191BE3FE2F00EEA3BA /* OBJObject.cpp */,
+				DF15DC1A1BE3FE2F00EEA3BA /* OBJObject.h */,
+				DF15DC201BE3FE2F00EEA3BA /* Sphere.cpp */,
+				DF15DC211BE3FE2F00EEA3BA /* Sphere.h */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		DF94954C1BEE9A8D0096368C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DF15DC031BE3FE2F00EEA3BA /* Color.h */,
+				DF15DC021BE3FE2F00EEA3BA /* Color.cpp */,
+				DF15DC081BE3FE2F00EEA3BA /* Drawable.cpp */,
+				DF15DC091BE3FE2F00EEA3BA /* Drawable.h */,
+				DF15DC0A1BE3FE2F00EEA3BA /* DrawData.cpp */,
+				DF15DC0B1BE3FE2F00EEA3BA /* DrawData.h */,
+				DF15DC241BE3FE2F00EEA3BA /* UpdateData.cpp */,
+				DF15DC251BE3FE2F00EEA3BA /* UpdateData.h */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		DF94954D1BEE9AC80096368C /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				DF15DC151BE3FE2F00EEA3BA /* MathTestBench.cpp */,
+				DF15DC161BE3FE2F00EEA3BA /* MathTestBench.h */,
+				DF15DC171BE3FE2F00EEA3BA /* Matrix4.cpp */,
+				DF15DC181BE3FE2F00EEA3BA /* Matrix4.h */,
+				DF15DC261BE3FE2F00EEA3BA /* Vector3.cpp */,
+				DF15DC271BE3FE2F00EEA3BA /* Vector3.h */,
+				DF15DC281BE3FE2F00EEA3BA /* Vector4.cpp */,
+				DF15DC291BE3FE2F00EEA3BA /* Vector4.h */,
+			);
+			name = Math;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D42FFC1D1AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D42FFC271AAFC90E006F8E9C /* Build configuration list for PBXNativeTarget "CSE167 Spring 2015 Starter Code" */;
+			buildPhases = (
+				D42FFC1A1AAFC90E006F8E9C /* Sources */,
+				D42FFC1B1AAFC90E006F8E9C /* Frameworks */,
+				D42FFC1C1AAFC90E006F8E9C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CSE167 Spring 2015 Starter Code";
+			productName = "CSE167 Spring 2015 Starter Code";
+			productReference = D42FFC1E1AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D42FFC161AAFC90E006F8E9C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = RexWest;
+			};
+			buildConfigurationList = D42FFC191AAFC90E006F8E9C /* Build configuration list for PBXProject "CSE167 Spring 2015 Starter Code" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D42FFC151AAFC90E006F8E9C;
+			productRefGroup = D42FFC1F1AAFC90E006F8E9C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D42FFC1D1AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D42FFC1A1AAFC90E006F8E9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF07B0991BF324B100A7919F /* BezierCurve.cpp in Sources */,
+				DF15DC391BE3FE2F00EEA3BA /* OBJObject.cpp in Sources */,
+				DF07AFC21BF28E3300A7919F /* Skybox.cpp in Sources */,
+				DF15DC341BE3FE2F00EEA3BA /* Light.cpp in Sources */,
+				DF15DC2E1BE3FE2F00EEA3BA /* Cube.cpp in Sources */,
+				DF15DC311BE3FE2F00EEA3BA /* DrawData.cpp in Sources */,
+				DF15DC401BE3FE2F00EEA3BA /* Vector3.cpp in Sources */,
+				DF15DC2C1BE3FE2F00EEA3BA /* Camera.cpp in Sources */,
+				DF53345C1BE9ACBE00B473E8 /* MatrixTransform.cpp in Sources */,
+				DF15DC371BE3FE2F00EEA3BA /* MathTestBench.cpp in Sources */,
+				DF15DC3B1BE3FE2F00EEA3BA /* README.md in Sources */,
+				DF15DC3A1BE3FE2F00EEA3BA /* PointLight.cpp in Sources */,
+				DF15DC411BE3FE2F00EEA3BA /* Vector4.cpp in Sources */,
+				DF15DC361BE3FE2F00EEA3BA /* Material.cpp in Sources */,
+				DF5334591BE9AC8600B473E8 /* Group.cpp in Sources */,
+				DF15DC3C1BE3FE2F00EEA3BA /* Shader.cpp in Sources */,
+				DF15DC451BE3FE7700EEA3BA /* SpotLight.cpp in Sources */,
+				DF15DC421BE3FE2F00EEA3BA /* Window.cpp in Sources */,
+				DF15DC3D1BE3FE2F00EEA3BA /* Sphere.cpp in Sources */,
+				DF15DC301BE3FE2F00EEA3BA /* Drawable.cpp in Sources */,
+				DF15DC3F1BE3FE2F00EEA3BA /* UpdateData.cpp in Sources */,
+				DF15DC321BE3FE2F00EEA3BA /* Globals.cpp in Sources */,
+				DF15DC3E1BE3FE2F00EEA3BA /* Texture.cpp in Sources */,
+				DF15DC2D1BE3FE2F00EEA3BA /* Color.cpp in Sources */,
+				DF15DC331BE3FE2F00EEA3BA /* House.cpp in Sources */,
+				DF15DC351BE3FE2F00EEA3BA /* main.cpp in Sources */,
+				DF15DC381BE3FE2F00EEA3BA /* Matrix4.cpp in Sources */,
+				DF15DC2F1BE3FE2F00EEA3BA /* DirectionalLight.cpp in Sources */,
+				DF53345F1BE9ACDB00B473E8 /* Geode.cpp in Sources */,
+				DF5334551BE9998500B473E8 /* Node.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D42FFC251AAFC90E006F8E9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D42FFC261AAFC90E006F8E9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D42FFC281AAFC90E006F8E9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D42FFC291AAFC90E006F8E9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D42FFC191AAFC90E006F8E9C /* Build configuration list for PBXProject "CSE167 Spring 2015 Starter Code" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D42FFC251AAFC90E006F8E9C /* Debug */,
+				D42FFC261AAFC90E006F8E9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D42FFC271AAFC90E006F8E9C /* Build configuration list for PBXNativeTarget "CSE167 Spring 2015 Starter Code" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D42FFC281AAFC90E006F8E9C /* Debug */,
+				D42FFC291AAFC90E006F8E9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D42FFC161AAFC90E006F8E9C /* Project object */;
+}
