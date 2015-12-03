@@ -186,7 +186,7 @@ void BezierCurve::draw()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     logo.bind();
-//    if (Window::shader) sh ader->bind();
+//    if (Window::shader) shader->bind();
     
     glBegin(GL_QUADS);
     glColor3f(1.0f, 1.0f, 1.0f);

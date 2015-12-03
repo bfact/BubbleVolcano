@@ -26,6 +26,7 @@ public:
     void bind(void);
     void unbind(void);
     
+    void frameBufferSetup(void);
 };
 
 #endif

@@ -111,6 +111,11 @@
 		DF15DC431BE3FE7700EEA3BA /* SpotLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotLight.cpp; sourceTree = SOURCE_ROOT; };
 		DF15DC441BE3FE7700EEA3BA /* SpotLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotLight.h; sourceTree = SOURCE_ROOT; };
 		DF1AA5CA1C0FAAE1001CAACD /* lavacracks.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = lavacracks.ppm; sourceTree = "<group>"; };
+		DF1AA5CB1C0FB6F2001CAACD /* glow.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = glow.frag; sourceTree = "<group>"; };
+		DF1AA5CC1C0FEF99001CAACD /* glow.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = glow.vert; sourceTree = "<group>"; };
+		DF1AA5CF1C100914001CAACD /* bloom.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = bloom.frag; sourceTree = "<group>"; };
+		DF1AA5D01C100920001CAACD /* blur.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blur.frag; sourceTree = "<group>"; };
+		DF1AA5D11C1009AA001CAACD /* blend.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blend.frag; sourceTree = "<group>"; };
 		DF5334531BE9998500B473E8 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = SOURCE_ROOT; };
 		DF5334541BE9998500B473E8 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = SOURCE_ROOT; };
 		DF5334571BE9AC8600B473E8 /* Group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Group.cpp; sourceTree = SOURCE_ROOT; };
@@ -148,6 +153,11 @@
 			children = (
 				DF7A61401BFF931A00F15CF5 /* flag.vert */,
 				DF7A61411BFF932800F15CF5 /* flag.frag */,
+				DF1AA5CC1C0FEF99001CAACD /* glow.vert */,
+				DF1AA5CB1C0FB6F2001CAACD /* glow.frag */,
+				DF1AA5CF1C100914001CAACD /* bloom.frag */,
+				DF1AA5D01C100920001CAACD /* blur.frag */,
+				DF1AA5D11C1009AA001CAACD /* blend.frag */,
 				DF1AA5CA1C0FAAE1001CAACD /* lavacracks.ppm */,
 				DF6AB2181C0E9DBE00D83E7C /* BubbleVolcano.obj */,
 				D42FFC201AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */,

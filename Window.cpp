@@ -28,6 +28,8 @@ int Movement;       //Mouse movement
 int spinDir = 1;    //Cube spin direction
 int source = 0;     //Light source
 
+bool Window::shader = false;
+
 void Window::initialize(void)
 {
     //Setup the light
@@ -195,6 +197,10 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
             m.makeScale(1.2);
             Globals::objdraw->toWorld = m.multiply(Globals::objdraw->toWorld);
             displayPosition();
+            break;
+            
+        case 't':
+            Window::shader = !Window::shader;
             break;
         
 //        case 's':    // scale down (zoom out)

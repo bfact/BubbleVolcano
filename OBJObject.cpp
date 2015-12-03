@@ -22,6 +22,9 @@
                                } while(false)
 
 #define LAVACRACKS "/Users/BrittanyFactura/GitHub/bubblevolcano/lavacracks.ppm"
+#define VERTEX "/Users/BrittanyFactura/GitHub/bubblevolcano/glow.vert"
+//#define FRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/glow.frag"
+#define FRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/bloom.frag"
 
 using namespace std;
 
@@ -91,6 +94,10 @@ void OBJObject::draw(DrawData& data)
 //    else if (Globals::objdraw == &Globals::bear)
 //        bear.apply();
     
+    Shader* bloom = new Shader(VERTEX, FRAGMENT);
+    Shader* blur  = new Shader(VERTEX, FRAGMENT);
+    Shader* blend = new Shader(VERTEX, FRAGMENT);
+    
     glMatrixMode(GL_MODELVIEW);
     
     glPushMatrix();
@@ -99,7 +106,15 @@ void OBJObject::draw(DrawData& data)
     cout << "Starting draw" << endl;
     
     lavacracks.bind();
+//    lavacracks.frameBufferSetup();
+    if (Window::shader) {
+        bloom->bind();
+        blur->bind();
+        blend->bind();
+    }
+    
     glBegin(GL_TRIANGLES);
+//    glBegin(GL_QUADS);
     
     for (int i = 0; i < faces->size(); i++) {
         face = faces->at(i);
@@ -114,20 +129,27 @@ void OBJObject::draw(DrawData& data)
             }
             Vector3 v  = *vertices->at(face->vertexIndices[j]);
             if (j == 0) {
-                glTexCoord2f(0.0, 0.0); glVertex3f(v[0], v[1], v[2]);
+                glTexCoord2f(0, 0);
+                glVertex3f(v[0], v[1], v[2]);
             }
             else if (j == 1) {
-                glTexCoord2f(1.0, 0.0); glVertex3f(v[0], v[1], v[2]);
+                glTexCoord2f(1, 0);
+                glVertex3f(v[0], v[1], v[2]);
             }
             else if (j == 2) {
-                glTexCoord2f(0.5, 1.0); glVertex3f(v[0], v[1], v[2]);
+                glTexCoord2f(0.5, 1);
+                glVertex3f(v[0], v[1], v[2]);
             }
         }
     }
     
     glEnd();
     lavacracks.unbind();
-    
+    if (Window::shader) {
+        bloom->unbind();
+        blur->unbind();
+        blend->unbind();
+    }
     cout << "Finished draw" << endl;
     
     glPopMatrix();

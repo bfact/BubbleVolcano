@@ -7,6 +7,7 @@
 #include "Vector3.h"
 #include "Drawable.h"
 #include "Texture.h"
+#include "Shader.h"
 
 struct Face
 {
