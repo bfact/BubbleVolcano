@@ -11,6 +11,7 @@ public:
     
     static int width, height; 	            // window size
     static bool shader;
+    static bool clouds;
     
     static void initialize(void);
     static void idleCallback(void);

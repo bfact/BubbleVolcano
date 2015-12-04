@@ -28,7 +28,12 @@ int Movement;       //Mouse movement
 int spinDir = 1;    //Cube spin direction
 int source = 0;     //Light source
 
-bool Window::shader = false;
+Skybox *starbox = new Skybox();
+
+bool Window::shader = true;
+bool Window::clouds = false;
+
+using namespace std;
 
 void Window::initialize(void)
 {
@@ -41,7 +46,7 @@ void Window::initialize(void)
     Matrix4 setup;
     setup.makeScale((16.37 * objtan)/Globals::volcano.halfSizeMAX);
     Globals::volcano.toWorld = setup.multiply(Globals::volcano.toWorld);
-    
+    //Init textures
     Globals::volcano.initTextures();
     
     // Initialize Texture Collection
@@ -50,6 +55,7 @@ void Window::initialize(void)
     
     //Globals::map.printMap();
 
+    starbox->initTextures();
 }
 
 //----------------------------------------------------------------------------
@@ -113,13 +119,20 @@ void Window::displayCallback()
     // Generate light source:
     glEnable(GL_LIGHTING);
     
+    glPushMatrix();
+    glTranslatef(0, 91.75, 0);
+//    glTranslatef(0, 45.75, 0);
+    starbox->draw();
+    glPopMatrix();
+
     Globals::volcano.draw(Globals::drawData);
     Globals::bubbles.drawEntireCollection();
     //Globals::bubbles.updateEntireCollection();
     glPushMatrix();
-    glTranslatef(-128, 0, -128);
+    glTranslatef(-128, -5, -128);
     Globals::map.draw();
     glPopMatrix();
+    
     
     
     //Pop off the changes we made to the matrix stack this frame
@@ -216,6 +229,11 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
         case 't':
             Window::shader = !Window::shader;
             break;
+            
+        case 'c':
+            Window::clouds = !Window::clouds;
+            starbox->initTextures();
+            break;
         
 //        case 's':    // scale down (zoom out)
 //            fov += 0.5;
@@ -279,6 +297,7 @@ void Window::processMouseActiveMotion(int x, int y)
                 Matrix4 lol;
                 lol.makeRotateArbitrary(rotAxis, rotAngle);
                 Globals::camera.setE(lol.multiply(Globals::camera.getE()));
+                Globals::camera.e.print("camera's e matrix");
             }
             
             break;
@@ -290,7 +309,8 @@ void Window::processMouseActiveMotion(int x, int y)
                           (currPoint[1] - lastPoint[1]) * -0.001, 0);
             Matrix4 lol;
             lol.makeTranslate(direction);
-            Globals::camera.setE(lol.multiply(Globals::camera.getE()));
+            Globals::camera.setE(Globals::camera.getE() + direction);
+            Globals::camera.e.print("camera's e matrix");
             break;
         }
             
@@ -300,7 +320,7 @@ void Window::processMouseActiveMotion(int x, int y)
             direction.set(0, 0, (currPoint[1] - lastPoint[1]) * -0.001);
             Matrix4 lol;
             lol.makeTranslate(direction);
-            Globals::camera.setE(lol.multiply(Globals::camera.getE()));
+            Globals::camera.setE(Globals::camera.getE() + direction);
             break;
             
     }

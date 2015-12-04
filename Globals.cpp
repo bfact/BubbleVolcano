@@ -25,7 +25,7 @@ UpdateData Globals::updateData;
 //OBJObject Globals::bear("/Users/BrittanyFactura/Desktop/Fall\ Quarter/CSE\ 167/project\ 1/bear.obj");
 
 
-OBJObject Globals::volcano(VOLCANO_SEAN);
+OBJObject Globals::volcano(VOLCANO);
 
 Drawable *Globals::objdraw = &volcano;
 

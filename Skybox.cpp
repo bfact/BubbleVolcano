@@ -17,7 +17,7 @@
 
 Skybox::Skybox()
 {
-    
+
 }
 
 
@@ -35,21 +35,21 @@ Skybox::~Skybox()
 
 void Skybox::initTextures()
 {
-    skybox_f = Texture("/Users/BrittanyFactura/Desktop/ppm/up-the-creek_ft.ppm");
-    skybox_b = Texture("/Users/BrittanyFactura/Desktop/ppm/up-the-creek_bk.ppm");
-    skybox_u = Texture("/Users/BrittanyFactura/Desktop/ppm/up-the-creek_up.ppm");
-    skybox_d = Texture("/Users/BrittanyFactura/Desktop/ppm/up-the-creek_dn.ppm");
-    skybox_l = Texture("/Users/BrittanyFactura/Desktop/ppm/up-the-creek_lf.ppm");
-    skybox_r = Texture("/Users/BrittanyFactura/Desktop/ppm/up-the-creek_rt.ppm");
-    
-//    glEnable(GL_TEXTURE_2D);                            // enable texture mapping
-//    glShadeModel(GL_SMOOTH);                            // enable smooth shading
-//    glClearColor(0.0f, 0.0f, 0.0f, 0.5f);               // black background
-//    glClearDepth(1.0f);                                 // depth buffer setup
-//    glEnable(GL_DEPTH_TEST);                            // enables depth testing
-//    glDepthFunc(GL_LEQUAL);                             // configure depth testing
-//    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);  // really nice perspective
-    
+    if (!Window::clouds) {
+        skybox_f = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/stars_front.ppm");
+        skybox_b = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/stars_back.ppm");
+        skybox_u = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/stars_top.ppm");
+        skybox_d = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/stars_front.ppm");
+        skybox_l = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/stars_left.ppm");
+        skybox_r = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/stars_right.ppm");
+    } else if (Window::clouds) {
+        skybox_f = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/clouds_front.ppm");
+        skybox_b = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/clouds_back.ppm");
+        skybox_u = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/clouds_top.ppm");
+        skybox_d = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/clouds_front.ppm");
+        skybox_l = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/clouds_left.ppm");
+        skybox_r = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/clouds_right.ppm");
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -63,7 +63,7 @@ void Skybox::draw()
 
     float size = 100;
     
-    skybox_f.bind();     //front
+    skybox_b.bind();     //front
     glBegin(GL_QUADS);   //start texture map drawing
     glColor3f(1.0, 1.0, 1.0);
     glTexCoord2f(0.0, 0.0); glVertex3f(-size,  size,  size);
@@ -71,10 +71,10 @@ void Skybox::draw()
     glTexCoord2f(1.0, 1.0); glVertex3f( size, -size,  size);
     glTexCoord2f(0.0, 1.0); glVertex3f(-size, -size,  size);
     glEnd();
-    skybox_f.unbind();
+    skybox_b.unbind();
     
     
-    skybox_b.bind();     //back
+    skybox_f.bind();     //back
     glBegin(GL_QUADS);   //start texture map drawing
     glColor3f(1.0, 1.0, 1.0);
     glTexCoord2f(1.0, 0.0); glVertex3f(-size,  size, -size);
@@ -82,7 +82,7 @@ void Skybox::draw()
     glTexCoord2f(0.0, 1.0); glVertex3f( size, -size, -size);
     glTexCoord2f(0.0, 0.0); glVertex3f( size,  size, -size);
     glEnd();
-    skybox_b.unbind();
+    skybox_f.unbind();
     
     
     skybox_u.bind();     //top

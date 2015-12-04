@@ -125,6 +125,16 @@
 		DF1AA5CF1C100914001CAACD /* bloom.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = bloom.frag; sourceTree = "<group>"; };
 		DF1AA5D01C100920001CAACD /* blur.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blur.frag; sourceTree = "<group>"; };
 		DF1AA5D11C1009AA001CAACD /* blend.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blend.frag; sourceTree = "<group>"; };
+		DF1AA5D71C1162C1001CAACD /* stars_top.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = stars_top.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5D81C1162C1001CAACD /* stars_back.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = stars_back.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5D91C1162C1001CAACD /* stars_front.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = stars_front.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5DA1C1162C1001CAACD /* stars_left.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = stars_left.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5DB1C1162C1001CAACD /* stars_right.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = stars_right.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5E21C116881001CAACD /* clouds_left.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clouds_left.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5E31C116881001CAACD /* clouds_top.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clouds_top.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5E41C116881001CAACD /* clouds_back.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clouds_back.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5E51C116881001CAACD /* clouds_right.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clouds_right.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5E61C116881001CAACD /* clouds_front.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clouds_front.ppm; sourceTree = SOURCE_ROOT; };
 		DF5334531BE9998500B473E8 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = SOURCE_ROOT; };
 		DF5334541BE9998500B473E8 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = SOURCE_ROOT; };
 		DF5334571BE9AC8600B473E8 /* Group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Group.cpp; sourceTree = SOURCE_ROOT; };
@@ -134,12 +144,6 @@
 		DF53345D1BE9ACDB00B473E8 /* Geode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geode.cpp; sourceTree = SOURCE_ROOT; };
 		DF53345E1BE9ACDB00B473E8 /* Geode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geode.h; sourceTree = SOURCE_ROOT; };
 		DF6AB2181C0E9DBE00D83E7C /* BubbleVolcano.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BubbleVolcano.obj; sourceTree = SOURCE_ROOT; };
-		DF70C4611BEEC7D8008545B7 /* spires_bk.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_bk.ppm; sourceTree = SOURCE_ROOT; };
-		DF70C4621BEEC7D8008545B7 /* spires_dn.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_dn.ppm; sourceTree = SOURCE_ROOT; };
-		DF70C4631BEEC7D8008545B7 /* spires_ft.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_ft.ppm; sourceTree = SOURCE_ROOT; };
-		DF70C4641BEEC7D8008545B7 /* spires_lf.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_lf.ppm; sourceTree = SOURCE_ROOT; };
-		DF70C4651BEEC7D8008545B7 /* spires_rt.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_rt.ppm; sourceTree = SOURCE_ROOT; };
-		DF70C4661BEEC7D8008545B7 /* spires_up.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spires_up.ppm; sourceTree = SOURCE_ROOT; };
 		DF7A61401BFF931A00F15CF5 /* flag.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = flag.vert; sourceTree = "<group>"; };
 		DF7A61411BFF932800F15CF5 /* flag.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = flag.frag; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,13 +226,17 @@
 				DF07B0981BF324B100A7919F /* BezierCurve.h */,
 				DF07AFC01BF28E3300A7919F /* Skybox.cpp */,
 				DF07AFC11BF28E3300A7919F /* Skybox.h */,
+				DF1AA5D71C1162C1001CAACD /* stars_top.ppm */,
+				DF1AA5D81C1162C1001CAACD /* stars_back.ppm */,
+				DF1AA5D91C1162C1001CAACD /* stars_front.ppm */,
+				DF1AA5DA1C1162C1001CAACD /* stars_left.ppm */,
+				DF1AA5DB1C1162C1001CAACD /* stars_right.ppm */,
+				DF1AA5E21C116881001CAACD /* clouds_left.ppm */,
+				DF1AA5E31C116881001CAACD /* clouds_top.ppm */,
+				DF1AA5E41C116881001CAACD /* clouds_back.ppm */,
+				DF1AA5E51C116881001CAACD /* clouds_right.ppm */,
+				DF1AA5E61C116881001CAACD /* clouds_front.ppm */,
 				DF07B0AD1BF459A100A7919F /* Ucsd-logo.ppm */,
-				DF70C4611BEEC7D8008545B7 /* spires_bk.ppm */,
-				DF70C4621BEEC7D8008545B7 /* spires_dn.ppm */,
-				DF70C4631BEEC7D8008545B7 /* spires_ft.ppm */,
-				DF70C4641BEEC7D8008545B7 /* spires_lf.ppm */,
-				DF70C4651BEEC7D8008545B7 /* spires_rt.ppm */,
-				DF70C4661BEEC7D8008545B7 /* spires_up.ppm */,
 			);
 			name = Texture;
 			sourceTree = "<group>";

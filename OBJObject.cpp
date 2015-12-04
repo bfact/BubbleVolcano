@@ -98,9 +98,9 @@ void OBJObject::draw(DrawData& data)
 //    else if (Globals::objdraw == &Globals::bear)
 //        bear.apply();
     
-    Shader* bloom = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
-    Shader* blur  = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
-    Shader* blend = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+    Shader* bloom = new Shader(VERTEX, FRAGMENT);
+    Shader* blur  = new Shader(VERTEX, FRAGMENT);
+    Shader* blend = new Shader(VERTEX, FRAGMENT);
     
     glMatrixMode(GL_MODELVIEW);
     
@@ -301,7 +301,7 @@ void OBJObject::getHalfSize()
 
 void OBJObject::initTextures()
 {
-    lavacracks = Texture(LAVACRACKS_SEAN);
+    lavacracks = Texture(LAVACRACKS);
 }
 
 //Split functions from the interwebs

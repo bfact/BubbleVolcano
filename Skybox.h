@@ -14,8 +14,9 @@
 #include <string>
 #include "Texture.h"
 #include "Drawable.h"
+#include "Window.h"
 
-class Skybox 
+class Skybox
 {
     
 protected:
