@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932A52941C11631E00FF3967 /* HeightMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 932A52921C11631E00FF3967 /* HeightMap.cpp */; };
+		93AF75AE1C10125800912639 /* Bubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93AF75AC1C10125800912639 /* Bubble.cpp */; };
+		93AF75B11C10182D00912639 /* BubbleCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93AF75AF1C10182D00912639 /* BubbleCollection.cpp */; };
 		D42FFC351AAFCD9A006F8E9C /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42FFC341AAFCD9A006F8E9C /* GLUT.framework */; };
 		D42FFC371AAFCDA0006F8E9C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42FFC361AAFCDA0006F8E9C /* OpenGL.framework */; };
 		DF07AFC21BF28E3300A7919F /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF07AFC01BF28E3300A7919F /* Skybox.cpp */; };
@@ -54,6 +57,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		932A52921C11631E00FF3967 /* HeightMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeightMap.cpp; sourceTree = SOURCE_ROOT; };
+		932A52931C11631E00FF3967 /* HeightMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightMap.h; sourceTree = SOURCE_ROOT; };
+		93AF75AC1C10125800912639 /* Bubble.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bubble.cpp; sourceTree = SOURCE_ROOT; };
+		93AF75AD1C10125800912639 /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble.h; sourceTree = SOURCE_ROOT; };
+		93AF75AF1C10182D00912639 /* BubbleCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BubbleCollection.cpp; sourceTree = SOURCE_ROOT; };
+		93AF75B01C10182D00912639 /* BubbleCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleCollection.h; sourceTree = SOURCE_ROOT; };
 		D42FFC1E1AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CSE167 Spring 2015 Starter Code"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42FFC341AAFCD9A006F8E9C /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		D42FFC361AAFCDA0006F8E9C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -195,6 +204,8 @@
 				DF15DC231BE3FE2F00EEA3BA /* Texture.h */,
 				DF15DC2A1BE3FE2F00EEA3BA /* Window.cpp */,
 				DF15DC2B1BE3FE2F00EEA3BA /* Window.h */,
+				932A52921C11631E00FF3967 /* HeightMap.cpp */,
+				932A52931C11631E00FF3967 /* HeightMap.h */,
 				DF94954B1BEE9A2D0096368C /* Objects */,
 				DF94954C1BEE9A8D0096368C /* Data */,
 				DF94954D1BEE9AC80096368C /* Math */,
@@ -263,6 +274,10 @@
 				DF15DC0F1BE3FE2F00EEA3BA /* House.h */,
 				DF15DC201BE3FE2F00EEA3BA /* Sphere.cpp */,
 				DF15DC211BE3FE2F00EEA3BA /* Sphere.h */,
+				93AF75AC1C10125800912639 /* Bubble.cpp */,
+				93AF75AD1C10125800912639 /* Bubble.h */,
+				93AF75AF1C10182D00912639 /* BubbleCollection.cpp */,
+				93AF75B01C10182D00912639 /* BubbleCollection.h */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -368,14 +383,17 @@
 				DF15DC421BE3FE2F00EEA3BA /* Window.cpp in Sources */,
 				DF15DC3D1BE3FE2F00EEA3BA /* Sphere.cpp in Sources */,
 				DF15DC301BE3FE2F00EEA3BA /* Drawable.cpp in Sources */,
+				932A52941C11631E00FF3967 /* HeightMap.cpp in Sources */,
 				DF15DC3F1BE3FE2F00EEA3BA /* UpdateData.cpp in Sources */,
 				DF15DC321BE3FE2F00EEA3BA /* Globals.cpp in Sources */,
+				93AF75AE1C10125800912639 /* Bubble.cpp in Sources */,
 				DF15DC3E1BE3FE2F00EEA3BA /* Texture.cpp in Sources */,
 				DF15DC2D1BE3FE2F00EEA3BA /* Color.cpp in Sources */,
 				DF15DC331BE3FE2F00EEA3BA /* House.cpp in Sources */,
 				DF15DC351BE3FE2F00EEA3BA /* main.cpp in Sources */,
 				DF15DC381BE3FE2F00EEA3BA /* Matrix4.cpp in Sources */,
 				DF15DC2F1BE3FE2F00EEA3BA /* DirectionalLight.cpp in Sources */,
+				93AF75B11C10182D00912639 /* BubbleCollection.cpp in Sources */,
 				DF53345F1BE9ACDB00B473E8 /* Geode.cpp in Sources */,
 				DF5334551BE9998500B473E8 /* Node.cpp in Sources */,
 			);

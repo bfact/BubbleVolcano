@@ -26,6 +26,10 @@
 //#define FRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/glow.frag"
 #define FRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/bloom.frag"
 
+#define LAVACRACKS_SEAN "/Users/seanwenzel/Github/bubblevolcano/lavacracks.ppm"
+#define VERTEX_SEAN "/Users/seanwenzel/Github/bubblevolcano/glow.vert"
+#define FRAGMENT_SEAN "/Users/seanwenzel/Github/bubblevolcano/bloom.frag"
+
 using namespace std;
 
 OBJObject::OBJObject(std::string filename) : Drawable()
@@ -94,16 +98,16 @@ void OBJObject::draw(DrawData& data)
 //    else if (Globals::objdraw == &Globals::bear)
 //        bear.apply();
     
-    Shader* bloom = new Shader(VERTEX, FRAGMENT);
-    Shader* blur  = new Shader(VERTEX, FRAGMENT);
-    Shader* blend = new Shader(VERTEX, FRAGMENT);
+    Shader* bloom = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+    Shader* blur  = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+    Shader* blend = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
     
     glMatrixMode(GL_MODELVIEW);
     
     glPushMatrix();
     glMultMatrixf(toWorld.ptr());
     
-    cout << "Starting draw" << endl;
+    //cout << "Starting draw" << endl;
     
     lavacracks.bind();
 //    lavacracks.frameBufferSetup();
@@ -150,7 +154,7 @@ void OBJObject::draw(DrawData& data)
         blur->unbind();
         blend->unbind();
     }
-    cout << "Finished draw" << endl;
+    //cout << "Finished draw" << endl;
     
     glPopMatrix();
 }
@@ -297,7 +301,7 @@ void OBJObject::getHalfSize()
 
 void OBJObject::initTextures()
 {
-    lavacracks = Texture(LAVACRACKS);
+    lavacracks = Texture(LAVACRACKS_SEAN);
 }
 
 //Split functions from the interwebs

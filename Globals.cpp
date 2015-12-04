@@ -1,13 +1,13 @@
 #include "Globals.h"
 #define VOLCANO "/Users/BrittanyFactura/Github/bubblevolcano/BubbleVolcano.obj"
-#define VOLCANOSEAN "/Users/seanwenzel/Github/bubblevolcano/BubbleVolcano.obj"
+#define VOLCANO_SEAN "/Users/seanwenzel/Github/bubblevolcano/BubbleVolcano.obj"
 
 
 Camera Globals::camera;
 
 Cube Globals::cube(10.0);
 
-Sphere Globals::sphere(10.0, 30.0, 30.0);
+Sphere Globals::sphere(1.0, 30.0, 30.0);
 
 House Globals::house(10.0);
 
@@ -25,7 +25,7 @@ UpdateData Globals::updateData;
 //OBJObject Globals::bear("/Users/BrittanyFactura/Desktop/Fall\ Quarter/CSE\ 167/project\ 1/bear.obj");
 
 
-OBJObject Globals::volcano(VOLCANO);
+OBJObject Globals::volcano(VOLCANO_SEAN);
 
 Drawable *Globals::objdraw = &volcano;
 
@@ -33,3 +33,9 @@ Drawable *Globals::objdraw = &volcano;
 DirectionalLight Globals::directionlight = DirectionalLight();
 SpotLight Globals::spotlight = SpotLight();
 PointLight Globals::pointlight = PointLight();
+
+std::vector<Texture> Globals::textures;
+BubbleCollection Globals::bubbles;
+
+HeightMap Globals::map;
+

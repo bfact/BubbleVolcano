@@ -43,6 +43,12 @@ void Window::initialize(void)
     Globals::volcano.toWorld = setup.multiply(Globals::volcano.toWorld);
     
     Globals::volcano.initTextures();
+    
+    // Initialize Texture Collection
+    Texture tex = Texture("/Users/seanwenzel/Github/bubblevolcano/lavacracks.ppm");
+    Globals::textures.push_back(tex);
+    
+    //Globals::map.printMap();
 
 }
 
@@ -56,6 +62,7 @@ void Window::idleCallback()
     
     //Call the display routine to draw the cube
     displayCallback();
+    
     
 }
 
@@ -107,6 +114,13 @@ void Window::displayCallback()
     glEnable(GL_LIGHTING);
     
     Globals::volcano.draw(Globals::drawData);
+    Globals::bubbles.drawEntireCollection();
+    //Globals::bubbles.updateEntireCollection();
+    glPushMatrix();
+    glTranslatef(-128, 0, -128);
+    Globals::map.draw();
+    glPopMatrix();
+    
     
     //Pop off the changes we made to the matrix stack this frame
     glPopMatrix();

@@ -8,12 +8,16 @@
 #include "DrawData.h"
 #include "UpdateData.h"
 #include "House.h"
+#include "Texture.h"
 #include "OBJObject.h"
 #include "DirectionalLight.h"
 #include "PointLight.h"
 #include "SpotLight.h"
 #include "Texture.h"
 #include "BezierPatch.h"
+#include "BubbleCollection.h"
+#include "Bubble.h"
+#include "HeightMap.h"
 
 class Globals
 {
@@ -38,6 +42,11 @@ public:
     static DirectionalLight directionlight;
     static PointLight pointlight;
     static SpotLight spotlight;
+    
+    static std::vector<Texture> textures;
+    static BubbleCollection bubbles;
+    
+    static HeightMap map;
 
 };
 

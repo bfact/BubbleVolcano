@@ -16,14 +16,14 @@ Sphere::Sphere(double radius, int slices, int stacks) : Drawable()
 
 void Sphere::draw(DrawData& data)
 {
-//    material.apply();
+    //material.apply();
     Material sphere = Material(Color(0.0, 0.0, 0.0, 0.1),
                                Color::diffuseMaterialDefault(),
                                Color::specularMaterialDefault(),
                                Color::emissionMaterialDefault(),
                                Color(0,1,1), 5.0);
     
-    sphere.apply();
+    //sphere.apply();
     
     glMatrixMode(GL_MODELVIEW);
     
@@ -38,7 +38,9 @@ void Sphere::draw(DrawData& data)
 
 void Sphere::update(UpdateData& data)
 {
-    //
+    Matrix4 m;
+    m.makeTranslate(0, .1, 0);
+    toWorld = m.multiply(toWorld);
 }
 
 
