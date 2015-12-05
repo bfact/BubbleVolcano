@@ -24,6 +24,8 @@ public:
     HeightMap();
     void printMap();
     void draw();
+    void generateNewHeightMap();
+    void resetMap();
     
 };
 

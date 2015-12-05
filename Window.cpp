@@ -234,6 +234,8 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
             Window::clouds = !Window::clouds;
             starbox->initTextures();
             break;
+        case 'g':
+            Globals::map.generateNewHeightMap();
         
 //        case 's':    // scale down (zoom out)
 //            fov += 0.5;

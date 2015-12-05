@@ -98,9 +98,20 @@ void OBJObject::draw(DrawData& data)
 //    else if (Globals::objdraw == &Globals::bear)
 //        bear.apply();
     
+    // Brittany's Version
     Shader* bloom = new Shader(VERTEX, FRAGMENT);
     Shader* blur  = new Shader(VERTEX, FRAGMENT);
     Shader* blend = new Shader(VERTEX, FRAGMENT);
+    
+    /*
+     // Sean's Version
+    Shader* bloom = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+    Shader* blur  = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+    Shader* blend = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+     */
+    
+  
+    
     
     glMatrixMode(GL_MODELVIEW);
     
@@ -301,6 +312,7 @@ void OBJObject::getHalfSize()
 
 void OBJObject::initTextures()
 {
+    //lavacracks = Texture(LAVACRACKS_SEAN);
     lavacracks = Texture(LAVACRACKS);
 }
 

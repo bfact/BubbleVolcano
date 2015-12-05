@@ -64,6 +64,8 @@ void HeightMap::diamondSquareAlgorithm(unsigned x1,unsigned y1,unsigned x2,unsig
             
             float f = map[i - level][j - level / 2] = (a + c + e + map[i - 3 * level / 2][j - level / 2]) / 4 + getRnd(maxDisplacement) * range;
             float g = map[i - level / 2][j - level] = (a + b + e + map[i - level / 2][j - 3 * level / 2]) / 4 + getRnd(maxDisplacement) * range;
+            
+            //range = range * 0.9;
         }
     
     diamondSquareAlgorithm(x1, y1, x2, y2, range / 2, level / 2);
@@ -122,5 +124,21 @@ void HeightMap::draw() {
     
     glEnd();
     
+}
+
+void HeightMap::generateNewHeightMap() {
+    resetMap();
+    float initialValue = 10.0;
+    map[0][0] = map[0][256] = map[256][0] = map[256][256] = initialValue;
+    float range = 10.0;
+    diamondSquareAlgorithm(0, 0, 256, 256, range, 256);
+}
+
+void HeightMap::resetMap() {
+    for (int i = 0; i < 257; i++) {
+        for (int j = 0; j < 257; j++) {
+            map[i][j] = 0.0;
+        }
+    }
 }
 
