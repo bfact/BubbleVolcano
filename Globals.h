@@ -18,6 +18,7 @@
 #include "BubbleCollection.h"
 #include "Bubble.h"
 #include "HeightMap.h"
+#include "ParticleSystem.h"
 
 class Globals
 {

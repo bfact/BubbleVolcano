@@ -14,6 +14,8 @@
 class HeightMap {
 private:
     float map[257][257];
+    float min;
+    float max;
     
     void diamondSquareAlgorithm(unsigned, unsigned, unsigned, unsigned, float, unsigned);
     //void diamondStep(float, float, float, float);
@@ -26,6 +28,7 @@ public:
     void draw();
     void generateNewHeightMap();
     void resetMap();
+    void findMinAndMax();
     
 };
 

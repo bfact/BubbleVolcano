@@ -15,6 +15,7 @@
 #include "Texture.h"
 #include "Skybox.h"
 #include "BezierCurve.h"
+#include "ParticleSystem.h"
 
 int Window::width  = 512;   //Set window width in pixels here
 int Window::height = 512;   //Set window height in pixels here
@@ -126,12 +127,16 @@ void Window::displayCallback()
     glPopMatrix();
 
     Globals::volcano.draw(Globals::drawData);
-    Globals::bubbles.drawEntireCollection();
+    //Globals::bubbles.drawEntireCollection();
     //Globals::bubbles.updateEntireCollection();
     glPushMatrix();
     glTranslatef(-128, -5, -128);
     Globals::map.draw();
     glPopMatrix();
+    
+    //ParticleSystem* particles = new ParticleSystem();
+    //particles->draw();
+    
     
     
     

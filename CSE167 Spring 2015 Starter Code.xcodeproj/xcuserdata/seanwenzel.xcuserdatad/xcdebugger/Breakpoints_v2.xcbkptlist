@@ -26,13 +26,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HeightMap.cpp"
-            timestampString = "470907802.68075"
+            timestampString = "471068526.268351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "HeightMap::diamondSquareAlgorithm(unsigned x1,unsigned y1,unsigned x2,unsigned y2,float range, unsigned level)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParticleSystem.cpp"
+            timestampString = "471043139.671875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "ParticleSystem::ParticleSystem()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ParticleSystem::ParticleSystem()"
+                  moduleName = "CSE167 Spring 2015 Starter Code"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwenzel/Github/bubblevolcano/ParticleSystem.cpp"
+                  timestampString = "471068551.605449"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ParticleSystem::ParticleSystem()"
+                  moduleName = "CSE167 Spring 2015 Starter Code"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwenzel/Github/bubblevolcano/ParticleSystem.cpp"
+                  timestampString = "471068551.605999"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
