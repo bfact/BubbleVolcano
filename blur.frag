@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 RexWest. All rights reserved.
 //
 
-uniform sampler2D inputImage;
+uniform sampler2D lavacracks;
 uniform vec2 pixelSize;
 
 void main()
@@ -30,7 +30,7 @@ void main()
     
     for( int i = 0; i < 9; i++ )
     {
-        colourOut += texture2D(inputImage, texCoord + offset[i] ).rgb;
+        colourOut += texture2D(lavacracks, texCoord + offset[i] ).rgb;
     }
     
     return ( colourOut / 9.0);

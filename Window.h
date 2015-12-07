@@ -10,7 +10,7 @@ class Window	  // OpenGL output window related routines
 public:
     
     static int width, height; 	            // window size
-    static bool shader;
+    static bool lavaShader;
     static bool clouds;
     
     static void initialize(void);

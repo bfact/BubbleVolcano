@@ -99,12 +99,13 @@ void Skybox::initTextures()
 //Draw skybox
 void Skybox::draw()
 {
+    float size = 100;
     
     glDisable(GL_LIGHTING);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
 
-    float size = 100;
+    glActiveTexture(GL_TEXTURE0);
     
     skybox_b.bind();     //front
     glBegin(GL_QUADS);   //start texture map drawing

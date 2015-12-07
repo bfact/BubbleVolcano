@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 RexWest. All rights reserved.
 //
 
-uniform sampler2D inputImage;
+uniform sampler2D lavacracks;
 
 float luminance = 1.0;
 float middleGrey = 2.0;
@@ -14,7 +14,7 @@ float threshold = 1.0;
 
 void main()
 {
-    vec3 colour = texture2D(inputImage, gl_TexCoord[0].st).rgb;
+    vec3 colour = texture2D(lavacracks, gl_TexCoord[0].st).rgb;
     
     colour *= (middleGrey / luminance );
     colour *= 1.0 + (colour / (threshold * threshold) );

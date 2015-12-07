@@ -34,7 +34,7 @@ Texture::Texture(const char* fname)
     //Create ID for texture
     glGenTextures(1, &texture[0]);
     id=texture[0];
-    
+        
     //Set this texture to be the one we are working with
     glBindTexture(GL_TEXTURE_2D, texture[0]);
     

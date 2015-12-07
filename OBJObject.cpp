@@ -20,11 +20,16 @@
                                    while(iter != end) delete (*(iter++));\
                                    delete __vect__;\
                                } while(false)
-
+//lava texture
 #define LAVACRACKS "/Users/BrittanyFactura/GitHub/bubblevolcano/lavacracks.ppm"
+//bloom effect
 #define VERTEX "/Users/BrittanyFactura/GitHub/bubblevolcano/glow.vert"
-//#define FRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/glow.frag"
-#define FRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/bloom.frag"
+#define BLOOMFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/bloom.frag"
+//#define BLURFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/blur.frag"
+#define BLENDFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/blend.frag"
+//bump mapping
+#define BUMPVERTEX "/Users/BrittanyFactura/GitHub/bubblevolcano/bumpmap.vert"
+#define BUMPFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/bumpmap.frag"
 
 #define LAVACRACKS_SEAN "/Users/seanwenzel/Github/bubblevolcano/lavacracks.ppm"
 #define VERTEX_SEAN "/Users/seanwenzel/Github/bubblevolcano/glow.vert"
@@ -52,85 +57,45 @@ OBJObject::~OBJObject()
     deleteVector(Vector3*, colors);
 }
 
+void OBJObject::initTextures()
+{
+}
+
+
 void OBJObject::draw(DrawData& data)
 {
     Face* face;
     
-//    material.apply();
-    
-    Color none     = Color(0.0, 0.0, 0.0, 1.0);
-    Color all      = Color(1.0, 1.0, 1.0, 1.0);
-    Color ambient  = Color(0.2, 0.2, 0.2, 1.0);
-    Color diffuse1 = Color(0.1, 0.5, 0.8, 1.0);
-    Color diffuse2 = Color(0.4, 0.5, 0.6, 1.0);
-    Color diffuse3 = Color(0.8, 0.8, 0.8, 1.0);
-    Color emission = Color(0.3, 0.2, 0.2, 0.0);
-    
-    Material bunny = Material(Color::ambientMaterialDefault(),
-                              none,
-                              all,
-                              none,
-                              Color(0.0,1.0,0.0), 128.0);
-    
-//    Material dragon = Material(ambient,
-//                               Color::diffuseMaterialDefault(),
-//                               Color::specularMaterialDefault(),
-//                               none,
-//                               Color(0,1.0,0), 128.0);
-    
-    Material dragon = Material(ambient,
-                               diffuse1,
-                               none,
-                               none,
-                               Color(0,1.0,0), 50.0);
-
-    
-    Material bear = Material(Color::ambientMaterialDefault(),
-                             none,
-                             all,
-                             none,
-                             Color(1.0,1.0,0), 5.0);
-    
-//    if (Globals::objdraw == &Globals::bunny)
-//        bunny.apply();
-//    else if (Globals::objdraw == &Globals::dragon)
-//        dragon.apply();
-//    else if (Globals::objdraw == &Globals::bear)
-//        bear.apply();
-    
-    /*
-    // Brittany's Version
-    Shader* bloom = new Shader(VERTEX, FRAGMENT);
-    Shader* blur  = new Shader(VERTEX, FRAGMENT);
-    Shader* blend = new Shader(VERTEX, FRAGMENT); */
-    
-    
-     // Sean's Version
-    Shader* bloom = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
-    Shader* blur  = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
-    Shader* blend = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
-    
-    
-  
-    
-    
     glMatrixMode(GL_MODELVIEW);
-    
     glPushMatrix();
     glMultMatrixf(toWorld.ptr());
-    
-    //cout << "Starting draw" << endl;
-    
+
+    glActiveTexture(GL_TEXTURE1);
     lavacracks.bind();
-//    lavacracks.frameBufferSetup();
-    if (Window::shader) {
+    //bumpmap->bind();
+    
+    
+    // Sean's Version
+    /*
+     Shader* bloom = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+     Shader* blur  = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+     Shader* blend = new Shader(VERTEX_SEAN, FRAGMENT_SEAN); */
+    
+    if (Window::lavaShader) {
         bloom->bind();
-        blur->bind();
-        blend->bind();
+        //blur->bind();
+        //blend->bind();
     }
     
+    // to have your lava sampler get the lava texture, you need to do:
+    GLhandleARB programHandle = bloom->getPid();
+    GLint lavaSamplerHandler = glGetUniformLocationARB(programHandle, "lavacracks");
+    glUniform1i(lavaSamplerHandler, 1);
+    
+    //printf("Lavacracks texture id %u \n", lavacracks.id);
+
+
     glBegin(GL_TRIANGLES);
-//    glBegin(GL_QUADS);
     
     for (int i = 0; i < faces->size(); i++) {
         face = faces->at(i);
@@ -138,9 +103,10 @@ void OBJObject::draw(DrawData& data)
             Vector3 vn = *normals->at(face->normalIndices[j]);
             vn = vn.normalize();
             glNormal3f(vn[0], vn[1], vn[2]);
+            
             if (color) {
                 Vector3 c = *colors->at(face->vertexIndices[j]);
-//                glColor4f(c[0], c[1], c[2], 0.5);
+                //glColor4f(c[0], c[1], c[2], 0.5);
                 glColor4f(1.0, 1.0, 1.0, 0.0);
             }
             Vector3 v  = *vertices->at(face->vertexIndices[j]);
@@ -160,14 +126,16 @@ void OBJObject::draw(DrawData& data)
     }
     
     glEnd();
-    lavacracks.unbind();
-    if (Window::shader) {
-        bloom->unbind();
-        blur->unbind();
-        blend->unbind();
-    }
-    //cout << "Finished draw" << endl;
     
+    lavacracks.unbind();
+    
+    if (Window::lavaShader) {
+        bloom->unbind();
+        //blur->unbind();
+        //blend->unbind();
+    }
+    
+    //bumpmap->unbind();
     glPopMatrix();
 }
 

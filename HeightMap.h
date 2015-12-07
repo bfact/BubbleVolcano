@@ -10,6 +10,8 @@
 #define HeightMap_h
 
 #include <stdio.h>
+#include "Texture.h"
+#include "Shader.h"
 
 class HeightMap {
 private:
@@ -29,6 +31,7 @@ public:
     void generateNewHeightMap();
     void resetMap();
     void findMinAndMax();
+    void initTextures();
     
 };
 

@@ -18,6 +18,16 @@
 #include <limits>
 #include <random>
 
+#define TERRAINVERTEX "/Users/BrittanyFactura/GitHub/bubblevolcano/terrain.vert"
+#define TERRAINFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/terrain.frag"
+
+Texture snow;
+Texture rock;
+Texture grass;
+Texture dirt;
+
+using namespace std;
+
 // Generate a height map using the Diamond-Square algorithm
 HeightMap::HeightMap() {
     float initialValue = 10.0;
@@ -215,23 +225,77 @@ void HeightMap::printMap() {
 }
 
 void HeightMap::draw() {
+
     //Texture texture = Texture("/Users/seanwenzel/Github/bubblevolcano/icesnow.ppm");
     //texture.bind();
+
+    glActiveTexture(GL_TEXTURE2);
+    snow.bind();
+    
+    glActiveTexture(GL_TEXTURE3);
+    rock.bind();
+    
+    glActiveTexture(GL_TEXTURE4);
+    dirt.bind();
+
+    Shader* terrain = new Shader(TERRAINVERTEX, TERRAINFRAGMENT);
+    terrain->bind();
+    
+    // to have your dirt sampler get the dirt texture, you need to do:
+    GLhandleARB programHandle = terrain->getPid();
+    
+    GLint snowSamplerHandle = glGetUniformLocationARB(programHandle, "snow");
+    GLint rockSamplerHandle = glGetUniformLocationARB(programHandle, "rock");
+    GLint dirtSamplerHandle = glGetUniformLocationARB(programHandle, "dirt");
+    
+    //do this every frame -- according to king alexander hawker
+    glUniform1i(snowSamplerHandle, 2);        //number corresponds to glActiveTexture
+    glUniform1i(rockSamplerHandle, 3);
+    glUniform1i(dirtSamplerHandle, 4);
+    
+    //printf("Snow texture id %u \n", snow.id);
+    //printf("Rock texture id %u \n", rock.id);
+    //printf("Grass texture id %u \n", grass.id);
+
     glBegin(GL_QUADS);
     glColor3f(1.0,1.0,1.0);
     
     for (int i = 0; i < 256; i++) {
         for (int j = 0; j < 256; j++) {
+            glMultiTexCoord2f(GL_TEXTURE2, 0.0, 0.0);
+            glMultiTexCoord2f(GL_TEXTURE3, 0.0, 0.0);
+            glMultiTexCoord2f(GL_TEXTURE4, 0.0, 0.0);
+            //glTexCoord2f(0, 0);
+            glVertex3f(i, map[i][j], j);
             
-            glTexCoord2f(0, 1); glVertex3f(i, map[i][j], j);
-            glTexCoord2f(0, 0); glVertex3f(i, map[i][j+1], j+1);
-            glTexCoord2f(1, 0); glVertex3f(i+1, map[i+1][j+1], j+1);
-            glTexCoord2f(1, 1); glVertex3f(i+1, map[i+1][j], j);
+            glMultiTexCoord2f(GL_TEXTURE2, 0.0, 1.0);
+            glMultiTexCoord2f(GL_TEXTURE3, 0.0, 1.0);
+            glMultiTexCoord2f(GL_TEXTURE4, 0.0, 1.0);
+            //glTexCoord2f(0, 1);
+            glVertex3f(i, map[i][j+1], j+1);
+            
+            glMultiTexCoord2f(GL_TEXTURE2, 1.0, 1.0);
+            glMultiTexCoord2f(GL_TEXTURE3, 1.0, 1.0);
+            glMultiTexCoord2f(GL_TEXTURE4, 1.0, 1.0);
+            //glTexCoord2f(1, 1);
+            glVertex3f(i+1, map[i+1][j+1], j+1);
+            
+            glMultiTexCoord2f(GL_TEXTURE2, 1.0, 0.0);
+            glMultiTexCoord2f(GL_TEXTURE3, 1.0, 0.0);
+            glMultiTexCoord2f(GL_TEXTURE4, 1.0, 0.0);
+            //glTexCoord2f(1, 0);
+            glVertex3f(i+1, map[i+1][j], j);
+
         }
     }
     
     glEnd();
-    //texture.unbind();
+    
+    snow.unbind();
+    rock.unbind();
+    dirt.unbind();
+    
+    terrain->unbind();
     
 }
 
@@ -251,3 +315,11 @@ void HeightMap::resetMap() {
     }
 }
 
+
+void HeightMap::initTextures()
+{    
+    snow = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/snow.ppm");
+    rock = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/rock.ppm");
+    grass= Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/grass.ppm");
+    dirt = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/dirt.ppm");
+}

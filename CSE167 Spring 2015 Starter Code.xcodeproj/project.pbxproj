@@ -126,7 +126,6 @@
 		DF15DC2B1BE3FE2F00EEA3BA /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = SOURCE_ROOT; };
 		DF15DC431BE3FE7700EEA3BA /* SpotLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotLight.cpp; sourceTree = SOURCE_ROOT; };
 		DF15DC441BE3FE7700EEA3BA /* SpotLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotLight.h; sourceTree = SOURCE_ROOT; };
-		DF1AA5CA1C0FAAE1001CAACD /* lavacracks.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = lavacracks.ppm; sourceTree = "<group>"; };
 		DF1AA5CB1C0FB6F2001CAACD /* glow.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = glow.frag; sourceTree = "<group>"; };
 		DF1AA5CC1C0FEF99001CAACD /* glow.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = glow.vert; sourceTree = "<group>"; };
 		DF1AA5CF1C100914001CAACD /* bloom.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = bloom.frag; sourceTree = "<group>"; };
@@ -142,6 +141,10 @@
 		DF1AA5E41C116881001CAACD /* clouds_back.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clouds_back.ppm; sourceTree = SOURCE_ROOT; };
 		DF1AA5E51C116881001CAACD /* clouds_right.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clouds_right.ppm; sourceTree = SOURCE_ROOT; };
 		DF1AA5E61C116881001CAACD /* clouds_front.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clouds_front.ppm; sourceTree = SOURCE_ROOT; };
+		DF1AA5E71C12AE5D001CAACD /* terrain.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = terrain.vert; sourceTree = "<group>"; };
+		DF1AA5E81C12AE5D001CAACD /* terrain.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = terrain.frag; sourceTree = "<group>"; };
+		DF1AA5E91C12BFE9001CAACD /* bumpmap.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = bumpmap.vert; sourceTree = SOURCE_ROOT; };
+		DF1AA5EA1C12BFF6001CAACD /* bumpmap.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = bumpmap.frag; sourceTree = "<group>"; };
 		DF5334531BE9998500B473E8 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = SOURCE_ROOT; };
 		DF5334541BE9998500B473E8 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = SOURCE_ROOT; };
 		DF5334571BE9AC8600B473E8 /* Group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Group.cpp; sourceTree = SOURCE_ROOT; };
@@ -153,6 +156,11 @@
 		DF6AB2181C0E9DBE00D83E7C /* BubbleVolcano.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BubbleVolcano.obj; sourceTree = SOURCE_ROOT; };
 		DF7A61401BFF931A00F15CF5 /* flag.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = flag.vert; sourceTree = "<group>"; };
 		DF7A61411BFF932800F15CF5 /* flag.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = flag.frag; sourceTree = "<group>"; };
+		DFCEB36C1C1409ED0051E9D9 /* dirt.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = dirt.ppm; sourceTree = SOURCE_ROOT; };
+		DFCEB36D1C1409ED0051E9D9 /* grass.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = grass.ppm; sourceTree = SOURCE_ROOT; };
+		DFCEB36E1C1409ED0051E9D9 /* rock.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = rock.ppm; sourceTree = SOURCE_ROOT; };
+		DFCEB36F1C1409ED0051E9D9 /* snow.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = snow.ppm; sourceTree = SOURCE_ROOT; };
+		DFCEB3731C1410900051E9D9 /* lavacracks.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = lavacracks.ppm; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,19 +179,9 @@
 		D42FFC151AAFC90E006F8E9C = {
 			isa = PBXGroup;
 			children = (
-				DF7A61401BFF931A00F15CF5 /* flag.vert */,
-				DF7A61411BFF932800F15CF5 /* flag.frag */,
-				DF1AA5CC1C0FEF99001CAACD /* glow.vert */,
-				DF1AA5CB1C0FB6F2001CAACD /* glow.frag */,
-				DF1AA5CF1C100914001CAACD /* bloom.frag */,
-				DF1AA5D01C100920001CAACD /* blur.frag */,
-				DF1AA5D11C1009AA001CAACD /* blend.frag */,
-				93742F801C137D8F00E54830 /* particle.frag */,
-				93742F811C137D8F00E54830 /* particle.vert */,
-				DF1AA5CA1C0FAAE1001CAACD /* lavacracks.ppm */,
-				93742F7B1C12767000E54830 /* icesnow.ppm */,
 				93742F7C1C12767000E54830 /* icysnow.ppm */,
-				DF6AB2181C0E9DBE00D83E7C /* BubbleVolcano.obj */,
+				93742F7B1C12767000E54830 /* icesnow.ppm */,
+				DFCEB3701C1410190051E9D9 /* GLSL */,
 				D42FFC201AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */,
 				DF15DC1D1BE3FE2F00EEA3BA /* README.md */,
 				D42FFC361AAFCDA0006F8E9C /* OpenGL.framework */,
@@ -203,8 +201,11 @@
 		D42FFC201AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */ = {
 			isa = PBXGroup;
 			children = (
+				DF6AB2181C0E9DBE00D83E7C /* BubbleVolcano.obj */,
 				DF07AFBF1BF28E0600A7919F /* Texture */,
 				DF15DC121BE3FE2F00EEA3BA /* main.cpp */,
+				DF07B0971BF324B100A7919F /* BezierCurve.cpp */,
+				DF07B0981BF324B100A7919F /* BezierCurve.h */,
 				DF15DC001BE3FE2F00EEA3BA /* Camera.cpp */,
 				DF15DC011BE3FE2F00EEA3BA /* Camera.h */,
 				DF15DC0C1BE3FE2F00EEA3BA /* Globals.cpp */,
@@ -215,14 +216,16 @@
 				DF15DC1A1BE3FE2F00EEA3BA /* OBJObject.h */,
 				DF15DC1E1BE3FE2F00EEA3BA /* Shader.cpp */,
 				DF15DC1F1BE3FE2F00EEA3BA /* Shader.h */,
+				DF07AFC01BF28E3300A7919F /* Skybox.cpp */,
+				DF07AFC11BF28E3300A7919F /* Skybox.h */,
 				DF15DC221BE3FE2F00EEA3BA /* Texture.cpp */,
 				DF15DC231BE3FE2F00EEA3BA /* Texture.h */,
-				DF15DC2A1BE3FE2F00EEA3BA /* Window.cpp */,
-				DF15DC2B1BE3FE2F00EEA3BA /* Window.h */,
 				932A52921C11631E00FF3967 /* HeightMap.cpp */,
 				932A52931C11631E00FF3967 /* HeightMap.h */,
 				93742F7D1C137B0800E54830 /* ParticleSystem.cpp */,
 				93742F7E1C137B0800E54830 /* ParticleSystem.h */,
+				DF15DC2A1BE3FE2F00EEA3BA /* Window.cpp */,
+				DF15DC2B1BE3FE2F00EEA3BA /* Window.h */,
 				DF94954B1BEE9A2D0096368C /* Objects */,
 				DF94954C1BEE9A8D0096368C /* Data */,
 				DF94954D1BEE9AC80096368C /* Math */,
@@ -235,10 +238,11 @@
 		DF07AFBF1BF28E0600A7919F /* Texture */ = {
 			isa = PBXGroup;
 			children = (
-				DF07B0971BF324B100A7919F /* BezierCurve.cpp */,
-				DF07B0981BF324B100A7919F /* BezierCurve.h */,
-				DF07AFC01BF28E3300A7919F /* Skybox.cpp */,
-				DF07AFC11BF28E3300A7919F /* Skybox.h */,
+				DFCEB3731C1410900051E9D9 /* lavacracks.ppm */,
+				DFCEB36C1C1409ED0051E9D9 /* dirt.ppm */,
+				DFCEB36D1C1409ED0051E9D9 /* grass.ppm */,
+				DFCEB36E1C1409ED0051E9D9 /* rock.ppm */,
+				DFCEB36F1C1409ED0051E9D9 /* snow.ppm */,
 				DF1AA5D71C1162C1001CAACD /* stars_top.ppm */,
 				DF1AA5D81C1162C1001CAACD /* stars_back.ppm */,
 				DF1AA5D91C1162C1001CAACD /* stars_front.ppm */,
@@ -331,6 +335,26 @@
 				DF15DC291BE3FE2F00EEA3BA /* Vector4.h */,
 			);
 			name = Math;
+			sourceTree = "<group>";
+		};
+		DFCEB3701C1410190051E9D9 /* GLSL */ = {
+			isa = PBXGroup;
+			children = (
+				DF7A61401BFF931A00F15CF5 /* flag.vert */,
+				DF7A61411BFF932800F15CF5 /* flag.frag */,
+				DF1AA5CC1C0FEF99001CAACD /* glow.vert */,
+				DF1AA5CB1C0FB6F2001CAACD /* glow.frag */,
+				DF1AA5CF1C100914001CAACD /* bloom.frag */,
+				DF1AA5D01C100920001CAACD /* blur.frag */,
+				DF1AA5D11C1009AA001CAACD /* blend.frag */,
+				93742F801C137D8F00E54830 /* particle.frag */,
+				93742F811C137D8F00E54830 /* particle.vert */,
+				DF1AA5E71C12AE5D001CAACD /* terrain.vert */,
+				DF1AA5E81C12AE5D001CAACD /* terrain.frag */,
+				DF1AA5E91C12BFE9001CAACD /* bumpmap.vert */,
+				DF1AA5EA1C12BFF6001CAACD /* bumpmap.frag */,
+			);
+			name = GLSL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

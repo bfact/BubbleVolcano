@@ -31,7 +31,7 @@ int source = 0;     //Light source
 
 Skybox *starbox = new Skybox();
 
-bool Window::shader = true;
+bool Window::lavaShader = true;
 bool Window::clouds = false;
 
 using namespace std;
@@ -43,9 +43,12 @@ void Window::initialize(void)
     Globals::light.position = lightPos;
     Globals::light.quadraticAttenuation = 0.02;
     
+    //Setup camera position
+    Globals::camera.setE(Vector3(48.8881, 18.2326, 82.8526));
+    
     //Setup size
     Matrix4 setup;
-    setup.makeScale((16.37 * objtan)/Globals::volcano.halfSizeMAX);
+    setup.makeScale((16.37 * objtan)/Globals::volcano.halfSizeMAX);    // 16.37
     Globals::volcano.toWorld = setup.multiply(Globals::volcano.toWorld);
     //Init textures
     Globals::volcano.initTextures();
@@ -54,9 +57,12 @@ void Window::initialize(void)
     Texture tex = Texture("/Users/seanwenzel/Github/bubblevolcano/lavacracks.ppm");
     Globals::textures.push_back(tex);
     
+    // Initialize Textures
+    Globals::map.initTextures();
+    starbox->initTextures();
+    
     //Globals::map.printMap();
 
-    starbox->initTextures();
 }
 
 //----------------------------------------------------------------------------
@@ -121,25 +127,25 @@ void Window::displayCallback()
     glEnable(GL_LIGHTING);
     
     glPushMatrix();
-    glTranslatef(0, 91.75, 0);
-//    glTranslatef(0, 45.75, 0);
+    glTranslatef(0, 70.00, 0);
     starbox->draw();
     glPopMatrix();
 
-    Globals::volcano.draw(Globals::drawData);
-    //Globals::bubbles.drawEntireCollection();
-    //Globals::bubbles.updateEntireCollection();
     glPushMatrix();
-    glTranslatef(-128, -5, -128);
+    glTranslatef(-128, -15, -128);
     Globals::map.draw();
     glPopMatrix();
     
+    Globals::volcano.draw(Globals::drawData);
+    
+    
+    //Globals::bubbles.drawEntireCollection();
+    //Globals::bubbles.updateEntireCollection();
+
+    
     //ParticleSystem* particles = new ParticleSystem();
     //particles->draw();
-    
-    
-    
-    
+
     //Pop off the changes we made to the matrix stack this frame
     glPopMatrix();
     
@@ -199,11 +205,12 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
             break;
             
         case 'r':  {  // reset
-            Globals::objdraw->toWorld.identity();
-            Matrix4 setup;
-            setup.makeScale((16.37 * objtan)/Globals::volcano.halfSizeMAX);
-            Globals::volcano.toWorld = setup.multiply(Globals::volcano.toWorld);
-            displayPosition();
+            //Globals::objdraw->toWorld.identity();
+            //Matrix4 setup;
+            //setup.makeScale((16.37 * objtan)/Globals::volcano.halfSizeMAX);
+            //Globals::volcano.toWorld = setup.multiply(Globals::volcano.toWorld);
+            //displayPosition();
+            Globals::camera.setE(Vector3(3.0577, 1.09578, 19.7345));
             break;
         }
         case 'o':    // orbit about z counterclockwise
@@ -232,7 +239,7 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
             break;
             
         case 't':
-            Window::shader = !Window::shader;
+            Window::lavaShader = !Window::lavaShader;
             break;
             
         case 'c':
