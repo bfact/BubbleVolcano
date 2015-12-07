@@ -20,6 +20,15 @@
 
 #define TERRAINVERTEX "/Users/BrittanyFactura/GitHub/bubblevolcano/terrain.vert"
 #define TERRAINFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/terrain.frag"
+#define SNOW "/Users/BrittanyFactura/GitHub/bubblevolcano/snow.ppm"
+#define ROCK "/Users/BrittanyFactura/GitHub/bubblevolcano/rock.ppm"
+#define GRASS "/Users/BrittanyFactura/GitHub/bubblevolcano/grass.ppm"
+#define DIRT "/Users/BrittanyFactura/GitHub/bubblevolcano/dirt.ppm"
+// Sean
+#define SNOW_SEAN "/Users/seanwenzel/Github/bubblevolcano/snow.ppm"
+#define ROCK_SEAN "/Users/seanwenzel/GitHub/bubblevolcano/rock.ppm"
+#define GRASS_SEAN "/Users/seanwenzel/GitHub/bubblevolcano/grass.ppm"
+#define DIRT_SEAN "/Users/seanwenzel/GitHub/bubblevolcano/dirt.ppm"
 
 Texture snow;
 Texture rock;
@@ -317,9 +326,20 @@ void HeightMap::resetMap() {
 
 
 void HeightMap::initTextures()
-{    
-    snow = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/snow.ppm");
-    rock = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/rock.ppm");
-    grass= Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/grass.ppm");
-    dirt = Texture("/Users/BrittanyFactura/GitHub/bubblevolcano/dirt.ppm");
+{
+    // Brittany's version
+    /*
+    snow = Texture(SNOW);
+    rock = Texture(ROCK);
+    grass= Texture(GRASS);
+    dirt = Texture(DIRT);
+    */
+    
+    // Sean's version
+    
+     snow = Texture(SNOW_SEAN);
+     rock = Texture(ROCK_SEAN);
+     grass= Texture(GRASS_SEAN);
+     dirt = Texture(DIRT_SEAN);
+    
 }
