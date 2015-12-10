@@ -315,6 +315,20 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
         case 'b':
             simulate = !simulate;
             break;
+        case 'p':
+            if (Globals::red == true) {
+                Globals::red = false;
+                Globals::white = true;
+            }
+            else if (Globals::white == true) {
+                Globals::white = false;
+                Globals::rainbow = true;
+            }
+            else if (Globals::rainbow == true){
+                Globals::rainbow = false;
+                Globals::red = true;
+            }
+            break;
             
     }
 }

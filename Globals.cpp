@@ -44,3 +44,8 @@ LSystem Globals::tree(4.0);
 LSystem Globals::tree1(6.0);
 LSystem Globals::tree2(2.0);
 LSystem Globals::tree3(5.0);
+
+float Globals::volcanoHeightDisplacement;
+bool Globals::rainbow = false;
+bool Globals::red = true;
+bool Globals::white = false;

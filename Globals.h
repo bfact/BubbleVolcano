@@ -57,6 +57,13 @@ public:
     static LSystem tree1;
     static LSystem tree2;
     static LSystem tree3;
+    
+    static float volcanoHeightDisplacement;
+    static bool rainbow;
+    static bool red;
+    static bool white;
+    
+    
 };
 
 #endif

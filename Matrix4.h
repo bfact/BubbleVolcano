@@ -53,6 +53,8 @@ public:
     Matrix4 inverse(void);
     Matrix4 rigidInverse(void);
     
+    void setYDisplacement(float);
+    
     Matrix4 makePerspectiveProjection(float, float, float, float, float);
     Matrix4 makeViewport(float, float, float, float);
     

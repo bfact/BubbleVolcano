@@ -66,6 +66,8 @@ void OBJObject::initTextures()
 
 void OBJObject::draw(DrawData& data)
 {
+    toWorld.setYDisplacement(Globals::volcanoHeightDisplacement);
+    
     Face* face;
     
     glMatrixMode(GL_MODELVIEW);

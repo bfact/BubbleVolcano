@@ -303,6 +303,9 @@ Matrix4 Matrix4::rigidInverse(void)
     return b;
 }
 
+void Matrix4::setYDisplacement(float v) {
+    m[3][1] = v;
+}
 
 Matrix4 Matrix4::makePerspectiveProjection(float fov, float width, float height, float near, float far)
 {

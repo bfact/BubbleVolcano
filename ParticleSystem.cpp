@@ -61,7 +61,7 @@ void ParticleSystem::draw() {
             break;
         }
         collection[particleIndex].life = fmod(rand(), 5.0f); // This particle will live 5 seconds.
-        collection[particleIndex].position = Vector3(0,5.0,0.0f);
+        collection[particleIndex].position = Vector3(0,2.5+Globals::volcanoHeightDisplacement,0.0f);
         
         float spread = 1.5f;
         Vector3 maindir = Vector3(0.0f, 10.0f, 0.0f);
