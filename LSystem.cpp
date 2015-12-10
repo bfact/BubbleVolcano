@@ -6,16 +6,26 @@
 //  Copyright (c) 2015 RexWest. All rights reserved.
 //
 
+#include <string>
 #include "LSystem.h"
 #include "Matrix4.h"
-#include <string>
-#define PI 3.14159265
-float c = PI/180.0;
+#include "Globals.h"
 
+#define deleteVector(__type__, __vect__) do {\
+std::vector<__type__>::iterator iter; \
+std::vector<__type__>::iterator end; \
+iter = __vect__->begin();\
+end = __vect__->end();\
+while(iter != end) delete ((iter++));\
+delete __vect__;\
+} while(false)
+
+#define PI 3.14159265
+
+float c = PI/180.0;
 int frame = 0;
 int elapsedTime;
 int timebase = 0;
-
 
 using namespace std;
 
@@ -57,33 +67,37 @@ void LSystem::structure()
 
 void LSystem::drawTree()
 {
-    string ch = "";
-    string LSystem = system->at(depth);
-    
-    for (int i = 0; i < LSystem.length(); i++) {
-        glColor3f(0.5, 0.3, 0.2);
-        ch = LSystem.at(i);
-        
-        if (ch.compare("F") == 0) {
-            drawLine();
-            if (i > 350) {
-                glColor3f(0.3, 1, 0.5);
-                glutSolidSphere(0.05, 10, 10);
-                glutSolidCone(0.05, 0.2, 10, 10);
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            string ch = "";
+            string LSystem = system->at(depth);
+            
+            for (int i = 0; i < LSystem.length(); i++) {
+                glColor3f(0.5, 0.3, 0.2);
+                ch = LSystem.at(i);
+                
+                if (ch.compare("F") == 0) {
+                    drawLine();
+                    if (i > 350) {
+                        glColor3f(0.3, 1, 0.5);
+                        glutSolidSphere(0.05, 10, 10);
+                        glutSolidCone(0.05, 0.2, 10, 10);
+                    }
+                }
+                
+                else if (ch.compare("[") == 0)
+                    pushMatrix();
+                
+                else if (ch.compare("]") == 0)
+                    popMatrix();
+                
+                else if (ch.compare("+") == 0)
+                    rotateRight();
+                
+                else if (ch.compare("-") == 0)
+                    rotateLeft();
             }
         }
-        
-        else if (ch.compare("[") == 0)
-            pushMatrix();
-            
-        else if (ch.compare("]") == 0)
-            popMatrix();
-            
-        else if (ch.compare("+") == 0)
-            rotateRight();
-
-        else if (ch.compare("-") == 0)
-            rotateLeft();
     }
 }
 
@@ -110,31 +124,35 @@ void LSystem::structure1()
 
 void LSystem::drawTree1()
 {
-    string ch = "";
-    string LSystem = system->at(depth);
-    
-    for (int i = 0; i < LSystem.length(); i++){
-        ch = LSystem.at(i);
-        
-        if (ch.compare("F") == 0) {
-            //glColor3f(0.847059, 0.847059, 0.74902);
-            glColor3f( 0.91 , 0.76 , 0.65);
-            drawLine();
-        }
-        else if (ch.compare("[") == 0)
-            pushMatrix();
-        
-        else if (ch.compare("]") == 0)
-            popMatrix();
-
-        else if (ch.compare("+") == 0) {
-            rotateLeft();
-            drawMoreLeafeses();
-        }
-
-        else if (ch.compare("-") == 0) {
-            rotateRight();
-            drawMoreLeafeses();
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            string ch = "";
+            string LSystem = system->at(depth);
+            
+            for (int i = 0; i < LSystem.length(); i++){
+                ch = LSystem.at(i);
+                
+                if (ch.compare("F") == 0) {
+                    //glColor3f(0.847059, 0.847059, 0.74902);
+                    glColor3f( 0.91 , 0.76 , 0.65);
+                    drawLine();
+                }
+                else if (ch.compare("[") == 0)
+                    pushMatrix();
+                
+                else if (ch.compare("]") == 0)
+                    popMatrix();
+                
+                else if (ch.compare("+") == 0) {
+                    rotateLeft();
+                    drawMoreLeafeses();
+                }
+                
+                else if (ch.compare("-") == 0) {
+                    rotateRight();
+                    drawMoreLeafeses();
+                }
+            }
         }
     }
 }
@@ -163,38 +181,46 @@ void LSystem::structure2()
 
 void LSystem::drawTree2()
 {
-    string ch = "";
-    string LSystem = system->at(depth);
-    
-    for (int i = 0; i < LSystem.length(); i++) {
-        glColor3f(0.5, 0.3, 0.2);
-        ch = LSystem.at(i);
-        
-        if (ch.compare("F") == 0) {
-            glColor3f(0.5, 1.0, 0.0);
-            drawLine();
-            if (i > 400) {
-                glColor3f(0.3, 1, 0.5);
-                glutSolidSphere(0.05, 10, 10);
-                glutSolidCone(0.05, 0.2, 10, 10);
-                drawLeaf();
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            string ch = "";
+            string LSystem = system->at(depth);
+            
+            for (int i = 0; i < LSystem.length(); i++) {
+                glColor3f(0.5, 0.3, 0.2);
+                ch = LSystem.at(i);
+                
+                if (ch.compare("F") == 0) {
+                    glColor3f(0.5, 1.0, 0.0);
+                    drawLine();
+                    if (i > 400) {
+                        glColor3f(0.3, 1, 0.5);
+                        glutSolidSphere(0.05, 10, 10);
+                        glutSolidCone(0.05, 0.2, 10, 10);
+                        drawLeaf();
+                    }
+                }
+                
+                else if (ch.compare("[") == 0)
+                    pushMatrix();
+                
+                else if (ch.compare("]") == 0)
+                    popMatrix();
+                
+                else if (ch.compare("+") == 0) {
+                    rotateRight();
+                    glColor3f(0.3, 1, 0.5);
+                    glutSolidSphere(0.05, 10, 10);
+                    glutSolidCone(0.05, 0.2, 10, 10);
+                }
+                
+                else if (ch.compare("-") == 0) {
+                    rotateLeft();
+                    glColor3f(0.3, 1, 0.5);
+                    glutSolidSphere(0.05, 10, 10);
+                    glutSolidCone(0.05, 0.2, 10, 10);
+                }
             }
-        }
-        
-        else if (ch.compare("[") == 0)
-            pushMatrix();
-        
-        else if (ch.compare("]") == 0)
-            popMatrix();
-        
-        else if (ch.compare("+") == 0) {
-            rotateRight();
-            drawLeaf();
-        }
-        
-        else if (ch.compare("-") == 0) {
-            rotateLeft();
-            drawLeaf();
         }
     }
 }
@@ -227,8 +253,8 @@ void LSystem::drawTree3()
         ch = LSystem.at(i);
         
         if (ch.compare("F") == 0) {
-            //glColor3f(0.847059, 0.847059, 0.74902);
-            glColor3f( 0.91 , 0.76 , 0.65);
+            glColor3f(0.847059, 0.847059, 0.74902);
+            //glColor3f( 0.91 , 0.76 , 0.65);
             drawLine();
         }
         else if (ch.compare("[") == 0)
@@ -321,7 +347,7 @@ void LSystem::drawMoreLeafeses()
     //glColor3f(1,1,0);
     //glColor3f(0.184314, 0.309804, 0.309804);
     
-    glColor3f(0.55 , 0.09 , 0.09);
+    glColor3f(0.498039, 1.0, 0.0);
     
     glBegin(GL_POLYGON);
     glTexCoord2f(0.0f, 0.0f);glVertex3f(-0.5f,0.0f,0.0f);
@@ -343,3 +369,7 @@ void LSystem::drawMoreLeafeses()
 
 
 
+void LSystem::drawSystem()
+{
+ 
+}

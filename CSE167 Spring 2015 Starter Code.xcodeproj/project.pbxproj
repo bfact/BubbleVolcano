@@ -80,6 +80,10 @@
 		DF07B0971BF324B100A7919F /* BezierCurve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BezierCurve.cpp; sourceTree = SOURCE_ROOT; };
 		DF07B0981BF324B100A7919F /* BezierCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierCurve.h; sourceTree = SOURCE_ROOT; };
 		DF07B0AD1BF459A100A7919F /* Ucsd-logo.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Ucsd-logo.ppm"; sourceTree = SOURCE_ROOT; };
+		DF0F30151C19ABE700903A2E /* bumpmap.ppm */ = {isa = PBXFileReference; lastKnownFileType = file; path = bumpmap.ppm; sourceTree = SOURCE_ROOT; };
+		DF0F30171C19B89E00903A2E /* normalmap.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalmap.ppm; sourceTree = SOURCE_ROOT; };
+		DF0F301B1C19BAAA00903A2E /* normal_map.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normal_map.ppm; sourceTree = SOURCE_ROOT; };
+		DF0F301C1C19BB5400903A2E /* normal.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normal.ppm; sourceTree = SOURCE_ROOT; };
 		DF15DBFE1BE3FE2F00EEA3BA /* bear.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bear.obj; sourceTree = SOURCE_ROOT; };
 		DF15DBFF1BE3FE2F00EEA3BA /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.obj; sourceTree = SOURCE_ROOT; };
 		DF15DC001BE3FE2F00EEA3BA /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = SOURCE_ROOT; };
@@ -244,6 +248,10 @@
 		DF07AFBF1BF28E0600A7919F /* Texture */ = {
 			isa = PBXGroup;
 			children = (
+				DF0F301C1C19BB5400903A2E /* normal.ppm */,
+				DF0F301B1C19BAAA00903A2E /* normal_map.ppm */,
+				DF0F30171C19B89E00903A2E /* normalmap.ppm */,
+				DF0F30151C19ABE700903A2E /* bumpmap.ppm */,
 				DFCEB3731C1410900051E9D9 /* lavacracks.ppm */,
 				DFCEB36C1C1409ED0051E9D9 /* dirt.ppm */,
 				DFCEB36D1C1409ED0051E9D9 /* grass.ppm */,

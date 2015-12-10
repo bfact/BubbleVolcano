@@ -63,7 +63,6 @@ public:
     static bool red;
     static bool white;
     
-    
 };
 
 #endif

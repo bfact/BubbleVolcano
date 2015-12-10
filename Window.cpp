@@ -33,10 +33,15 @@ int source = 0;     //Light source
 Skybox *starbox = new Skybox();
 
 bool Window::lavaShader = true;
+bool Window::mapShader = true;
 bool Window::clouds = false;
 
 float x = 25.0, y = 10.0, z = 0.0;
+
+//-36.1607, y:46.5748, z:36.3862
+float x2 = -39.1607, y2 = 46.5748, z2 = 36.3862;
 bool simulate = false;
+bool secondSimulate = false;
 
 using namespace std;
 
@@ -76,7 +81,6 @@ void Window::initialize(void)
         Globals::tree2.structure2();
         Globals::tree3.structure3();
     }
-
 
 }
 
@@ -154,52 +158,22 @@ void Window::displayCallback()
     Globals::particles.draw();
     
 
-    if (simulate && x <= 80 && y <= 50 && z <= 60) {
-        x += 0.15;
-        y += 0.10;
-        z += 0.15;
+    if (simulate && x <= 80 && y <= 50 && z <= 60 && !secondSimulate) {
+        x += 0.25;
+        y += 0.20;
+        z += 0.25;
         Globals::camera.setE(Vector3(x, y, z));
         //Globals::camera.e.print("camera's e matrix");
-    }
-
+    } else if (simulate && !secondSimulate) { x = 25.0, y = 10.0, z = 0.0; }
     
+    if (secondSimulate && x2 <= -10 && y2 <= 100 && z2 <= 100 && !simulate) {
+        x2 += 0.55;
+        y2 += 0.20;
+        z2 += 0.55;
+        Globals::camera.setE(Vector3(x2, y2, z2));
+    } else if (secondSimulate && !simulate) { x2 = -36.1607, y2 = 46.5748, z2 = 36.3862; }
 
-    glPushMatrix();
-    glTranslatef(7.0, -7.0, 0.0);
-    for(int i = 0; i < 3; i++) {
-        for(int j = 0; j < 3; j++) {
-            Globals::tree.drawTree();
-        }
-    }
-    glPopMatrix();
-    
-    glPushMatrix();
-    glTranslatef(14.0, -3.0, 0.0);
-    for(int i = 0; i < 3; i++) {
-        for(int j = 0; j < 3; j++) {
-            Globals::tree1.drawTree1();
-        }
-    }
-    glPopMatrix();
-    
-    glPushMatrix();
-    glTranslatef(-7.0, -3.0, 5.0);
-    for(int i = 0; i < 3; i++) {
-        for(int j = 0; j < 3; j++) {
-            Globals::tree2.drawTree2();
-        }
-    }
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-7.0, -3.0, 10.0);
-    for(int i = 0; i < 3; i++) {
-        for(int j = 0; j < 3; j++) {
-//            Globals::tree3.drawTree3();
-        }
-    }
-    glPopMatrix();
-
+    drawTrees();
     
     //Globals::bubbles.drawEntireCollection();
     //Globals::bubbles.updateEntireCollection();
@@ -230,48 +204,39 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
 //            break;
             
         case 'x':    // move left
-            m.makeTranslate(-.5, 0, 0);
-            Globals::objdraw->toWorld = m.multiply(Globals::objdraw->toWorld);
-            displayPosition();
+            Globals::camera.setE(Vector3(--Globals::camera.e[0], Globals::camera.e[1], Globals::camera.e[2]));
+            Globals::camera.e.print("camera's e matrix");
             break;
             
         case 'X':    // move right
-            m.makeTranslate(.5, 0, 0);
-            Globals::objdraw->toWorld = m.multiply(Globals::objdraw->toWorld);
-            displayPosition();
+            Globals::camera.setE(Vector3(++Globals::camera.e[0], Globals::camera.e[1], Globals::camera.e[2]));
+            Globals::camera.e.print("camera's e matrix");
             break;
             
         case 'y':   // move down
-            m.makeTranslate(0, -.5, 0);
-            Globals::objdraw->toWorld = m.multiply(Globals::objdraw->toWorld);
-            displayPosition();
+            Globals::camera.setE(Vector3(Globals::camera.e[0], --Globals::camera.e[1], Globals::camera.e[2]));
+            Globals::camera.e.print("camera's e matrix");
             break;
             
         case 'Y':    // move up
-            m.makeTranslate(0, .5, 0);
-            Globals::objdraw->toWorld = m.multiply(Globals::objdraw->toWorld);
-            displayPosition();
+            Globals::camera.setE(Vector3(Globals::camera.e[0], ++Globals::camera.e[1], Globals::camera.e[2]));
+            Globals::camera.e.print("camera's e matrix");
             break;
             
         case 'z':    // move into
-            m.makeTranslate(0, 0, -.5);
-            Globals::objdraw->toWorld = m.multiply(Globals::objdraw->toWorld);
-            displayPosition();
+            Globals::camera.setE(Vector3(Globals::camera.e[0], Globals::camera.e[1], --Globals::camera.e[2]));
+            Globals::camera.e.print("camera's e matrix");
             break;
             
         case 'Z':    // move out of
-            m.makeTranslate(0, 0, .5);
-            Globals::objdraw->toWorld = m.multiply(Globals::objdraw->toWorld);
-            displayPosition();
+            Globals::camera.setE(Vector3(Globals::camera.e[0], Globals::camera.e[1], ++Globals::camera.e[2]));
+            Globals::camera.e.print("camera's e matrix");
             break;
             
         case 'r':  {  // reset
-            //Globals::objdraw->toWorld.identity();
-            //Matrix4 setup;
-            //setup.makeScale((16.37 * objtan)/Globals::volcano.halfSizeMAX);
-            //Globals::volcano.toWorld = setup.multiply(Globals::volcano.toWorld);
-            //displayPosition();
-            Globals::camera.setE(Vector3(3.0577, 1.09578, 19.7345));
+
+            //Globals::camera.setE(Vector3(3.0577, 1.09578, 19.7345));
+            Globals::camera.setE(Vector3(25.1641, 14.1443, 20.5427));
             break;
         }
         case 'o':    // orbit about z counterclockwise
@@ -287,6 +252,7 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
             displayPosition();
             break;
             
+            /*
         case 's':    // scale down
             m.makeScale(.8);
             Globals::objdraw->toWorld = m.multiply(Globals::objdraw->toWorld);
@@ -298,9 +264,22 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
             Globals::objdraw->toWorld = m.multiply(Globals::objdraw->toWorld);
             displayPosition();
             break;
+           */
             
-        case 't':
+        case 's':    // scale down (zoom out)
+            fov += 0.5;
+            break;
+            
+        case 'S':    // scale up (zoom in)
+            fov -= 0.5;
+            break;
+            
+        case 'l':
             Window::lavaShader = !Window::lavaShader;
+            break;
+        
+        case 'k':
+            Window::mapShader = !Window::mapShader;
             break;
             
         case 'c':
@@ -315,6 +294,7 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
         case 'b':
             simulate = !simulate;
             break;
+            
         case 'p':
             if (Globals::red == true) {
                 Globals::red = false;
@@ -330,7 +310,97 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
             }
             break;
             
+        case 'v':
+            secondSimulate = !secondSimulate;
+            break;
+            
     }
+}
+
+
+//----------------------------------------------------------------------------
+// Draw procedurally generated L-System trees
+void Window::drawTrees()
+{
+    glPushMatrix();
+    glTranslatef(50.0, -3.0, 7.0);
+    Globals::tree.drawTree();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(54.0, -3.0, 13.0);
+    Globals::tree.drawTree();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(52.0, -3.0, 15.0);
+    Globals::tree.drawTree();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(56.0, -3.0, 17.0);
+    Globals::tree.drawTree();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(-30.0, 20.0, 20.0);
+    Globals::tree1.drawTree1();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(-20.0, 22.0, 35.0);
+    Globals::tree1.drawTree1();
+    glPopMatrix();
+    
+//    glPushMatrix();
+//    glTranslatef(-40.0, 20.0, 40.0);
+//    Globals::tree1.drawTree1();
+//    glPopMatrix();
+//    
+//    glPushMatrix();
+//    glTranslatef(-43.0, 20.0, 50.0);
+//    Globals::tree1.drawTree1();
+//    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(-12.0, 3.0, 5.0);
+    Globals::tree2.drawTree2();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(-16, 3.0, 0);
+    Globals::tree2.drawTree2();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(-12.0, 3.0, 5.0);
+    Globals::tree2.drawTree2();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(-16, 3.0, 0);
+    Globals::tree2.drawTree2();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(-12.0, 3.0, 5.0);
+    Globals::tree2.drawTree2();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(-16, 3.0, 0);
+    Globals::tree2.drawTree2();
+    glPopMatrix();
+    
+    /*
+    glPushMatrix();
+    glTranslatef(-7.0, 0.0, 10.0);
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            Globals::tree3.drawTree3();
+        }
+    }
+    glPopMatrix();
+     */
 }
 
 
@@ -408,6 +478,7 @@ void Window::processMouseActiveMotion(int x, int y)
             Matrix4 lol;
             lol.makeTranslate(direction);
             Globals::camera.setE(Globals::camera.getE() + direction);
+            Globals::camera.e.print("camera's e matrix");
             break;
             
     }

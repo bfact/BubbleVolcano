@@ -7,8 +7,9 @@
 //
 
 
-varying vec3 N;
-varying vec3 v;
+//varying vec3 N;
+//varying vec3 v;
+varying vec4 vertexPos;
 
 void main(void)
 {
@@ -18,4 +19,5 @@ void main(void)
     
     gl_TexCoord[0] = gl_MultiTexCoord0;
     gl_Position = ftransform();
+    vertexPos = gl_Position;
 }

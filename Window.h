@@ -11,6 +11,7 @@ public:
     
     static int width, height; 	            // window size
     static bool lavaShader;
+    static bool mapShader;
     static bool clouds;
     
     static void initialize(void);
@@ -24,6 +25,8 @@ public:
     static void processMouse(int button, int state, int x, int y);
     static void processMouseActiveMotion(int x, int y);
     static Vector3 trackBallMapping(int x, int y);
+    
+    static void drawTrees(void);
     
 };
 

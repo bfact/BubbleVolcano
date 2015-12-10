@@ -7,31 +7,32 @@
 //
 
 uniform sampler2D lavacracks;
-uniform vec2 pixelSize;
+//uniform vec2 pixelSize;
+varying vec4 vertexPos;
 
 void main()
 {
+    vec2 offset[9];
     vec3 colourOut = vec3(0.0);
     
-    vec2 offset[9] = vec2[]( // Bottom of the kernal
-                            vec2(-pixelSize.x, -pixelSize.y),
-                            vec2( 0.0, -pixelSize.y),
-                            vec2(+pixelSize.x, -pixelSize.y),
+    offset[0] = vec2(-vertexPos.x, -vertexPos.y);
+    offset[1] = vec2( 0.0, -vertexPos.y);
+    offset[2] = vec2(+vertexPos.x, -vertexPos.y);
                             
-                            // Middle of the kernal
-                            vec2(-pixelSize.x, 0.0),
-                            vec2( 0.0, 0.0),
-                            vec2(+pixelSize.x, 0.0),
-                            
-                            //Top of the kernal
-                            vec2(-pixelSize.x, +pixelSize.y),
-                            vec2( 0.0, +pixelSize.y),
-                            vec2(+pixelSize.x, +pixelSize.y)  );
+    offset[3] = vec2(-vertexPos.x, 0.0);
+    offset[4] = vec2( 0.0, 0.0);
+    offset[5] = vec2(+vertexPos.x, 0.0);
+    
+    offset[6] = vec2(-vertexPos.x, +vertexPos.y);
+    offset[7] = vec2( 0.0, +vertexPos.y);
+    offset[8] = vec2(+vertexPos.x, +vertexPos.y);
     
     for( int i = 0; i < 9; i++ )
     {
-        colourOut += texture2D(lavacracks, texCoord + offset[i] ).rgb;
+        colourOut += texture2D(lavacracks, gl_TexCoord[0].xy + offset[i] ).rgb;
     }
     
-    return ( colourOut / 9.0);
+    vec4 result = vec4(colourOut[0], colourOut[1], colourOut[2], 0);
+    
+    gl_FragColor = result;
 }

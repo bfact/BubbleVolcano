@@ -6,34 +6,15 @@
 //  Copyright (c) 2015 RexWest. All rights reserved.
 //
 
-uniform sampler2D base;
-uniform sampler2D normalMap;
-uniform vec3 CAMERA_POSITION;
-varying vec3 position;
-varying vec3 lightvec;
+uniform sampler2D color_texture;
+uniform sampler2D normal_texture;
 
-void main()
-{
-    vec3 norm = texture2D(normalMap, gl_TexCoord[0].st).rgb * 2.0 - 1.0;
-    vec3 baseColor = texture2D(base, gl_TexCoord[0].st).rgb;
+void main() {
+
+    vec3 normal = normalize(texture2D(normal_texture, gl_TexCoord[0].st).rgb * 2.0 - 1.0);
+    vec3 light_pos = normalize(vec3(0.0, 1.0, 10.5));
+    float diffuse = max(dot(normal, light_pos), 0.0);
+    vec3 color = diffuse * texture2D(color_texture, gl_TexCoord[0].st).rgb;
     
-    float dist = length(lightvec);
-    
-    vec3 lightVector = normalize(lightvec);
-    float nxDir = max(0.0, dot(norm, lightVector));
-    vec4 diffuse = gl_LightSource[0].diffuse * nxDir;
-    
-    float specularPower = 0.0;
-    if(nxDir != 0.0)
-    {
-        vec3 cameraVector = normalize(CAMERA_POSITION - position.xyz);
-        vec3 halfVector = normalize(lightVector + cameraVector);
-        float nxHalf = max(0.0,dot(norm, halfVector));
-        specularPower = pow(nxHalf, gl_FrontMaterial.shininess);
-    }
-    vec4 specular = gl_LightSource[0].specular * specularPower;
-    
-    gl_FragColor = gl_LightSource[0].ambient +
-    (diffuse * vec4(baseColor.rgb,1.0)) +
-    specular;
+    gl_FragColor = vec4(color, 1.0);
 }

@@ -61,6 +61,7 @@ public:
     
     //final project
     Texture lavacracks;
+    Texture bump;
     void initTextures(void);
 };
 

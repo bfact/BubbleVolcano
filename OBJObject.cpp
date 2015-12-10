@@ -21,19 +21,23 @@
                                    delete __vect__;\
                                } while(false)
 //lava texture
-#define LAVACRACKS "/Users/BrittanyFactura/GitHub/bubblevolcano/lavacracks.ppm"
+#define LAVACRACKS    "/Users/BrittanyFactura/GitHub/bubblevolcano/lavacracks.ppm"
 //bloom effect
-#define VERTEX "/Users/BrittanyFactura/GitHub/bubblevolcano/glow.vert"
+#define BLOOMVERTEX   "/Users/BrittanyFactura/GitHub/bubblevolcano/glow.vert"
 #define BLOOMFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/bloom.frag"
-//#define BLURFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/blur.frag"
+#define BLURFRAGMENT  "/Users/BrittanyFactura/GitHub/bubblevolcano/blur.frag"
 #define BLENDFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/blend.frag"
 //bump mapping
-#define BUMPVERTEX "/Users/BrittanyFactura/GitHub/bubblevolcano/bumpmap.vert"
-#define BUMPFRAGMENT "/Users/BrittanyFactura/GitHub/bubblevolcano/bumpmap.frag"
-
-#define LAVACRACKS_SEAN "/Users/seanwenzel/Github/bubblevolcano/lavacracks.ppm"
-#define VERTEX_SEAN "/Users/seanwenzel/Github/bubblevolcano/glow.vert"
-#define FRAGMENT_SEAN "/Users/seanwenzel/Github/bubblevolcano/bloom.frag"
+#define BUMP          "/Users/BrittanyFactura/GitHub/bubblevolcano/normalmap.ppm"
+#define BUMPVERTEX    "/Users/BrittanyFactura/GitHub/bubblevolcano/bumpmap.vert"
+#define BUMPFRAGMENT  "/Users/BrittanyFactura/GitHub/bubblevolcano/bumpmap.frag"
+//sean!!!!
+#define LAVACRACKS_SEAN    "/Users/seanwenzel/Github/bubblevolcano/lavacracks.ppm"
+#define BLOOMVERTEX_SEAN   "/Users/seanwenzel/Github/bubblevolcano/glow.vert"
+#define BLOOMFRAGMENT_SEAN "/Users/seanwenzel/Github/bubblevolcano/bloom.frag"
+#define BUMP_SEAN          "/Users/seanwenzel/GitHub/bubblevolcano/normalmap.ppm"
+#define BUMPVERTEX_SEAN    "/Users/seanwenzel/GitHub/bubblevolcano/bumpmap.vert"
+#define BUMPFRAGMENT_SEAN  "/Users/seanwenzel/GitHub/bubblevolcano/bumpmap.frag"
 
 using namespace std;
 
@@ -59,8 +63,10 @@ OBJObject::~OBJObject()
 
 void OBJObject::initTextures()
 {
-    //    lavacracks = Texture(LAVACRACKS_SEAN);
+    //lavacracks = Texture(LAVACRACKS_SEAN);
+    bump = Texture(BUMP_SEAN);
     lavacracks = Texture(LAVACRACKS);
+    bump = Texture(BUMP);
 }
 
 
@@ -76,14 +82,14 @@ void OBJObject::draw(DrawData& data)
 
     glActiveTexture(GL_TEXTURE0);
     lavacracks.bind();
-    //bumpmap->bind();
     
+    glActiveTexture(GL_TEXTURE1);
+    bump.bind();
     
     // Brittany's Version
-    Shader* bloom = new Shader(VERTEX, BLOOMFRAGMENT);
-//    Shader* blur  = new Shader(VERTEX, BLURFRAGMENT);
-    Shader* blend = new Shader(VERTEX, BLENDFRAGMENT);
-    
+    Shader* bloom = new Shader(BLOOMVERTEX, BLOOMFRAGMENT);
+    Shader* blur  = new Shader(BLOOMVERTEX, BLURFRAGMENT);
+    Shader* blend = new Shader(BLOOMVERTEX, BLENDFRAGMENT);
     
     Shader* bumpmap = new Shader(BUMPVERTEX, BUMPFRAGMENT);
     
@@ -91,24 +97,35 @@ void OBJObject::draw(DrawData& data)
     
     // Sean's Version
     
-     Shader* bloom = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
-     Shader* blur  = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
-     Shader* blend = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+     Shader* bloom = new Shader(BLOOMVERTEX_SEAN, FRAGMENT_SEAN);
+     Shader* blur  = new Shader(BLOOMVERTEX_SEAN, FRAGMENT_SEAN);
+     Shader* blend = new Shader(BLOOMVERTEX_SEAN, FRAGMENT_SEAN);
      */
     
-    //bumpmap->bind();
     
     if (Window::lavaShader) {
         bloom->bind();
+        //blur->bind();
         //blend->bind();
     }
+    
+    if (Window::mapShader) bumpmap->bind();
     
     // to have your lava sampler get the lava texture, you need to do:
     GLhandleARB programHandle = bloom->getPid();
     GLint lavaSamplerHandler = glGetUniformLocationARB(programHandle, "lavacracks");
     glUniform1i(lavaSamplerHandler, 0);
-    
-    //printf("Lavacracks texture id %u \n", lavacracks.id);
+
+    GLhandleARB programHandleBlur = blur->getPid();
+    GLint lavaSamplerHandlerBlur = glGetUniformLocationARB(programHandleBlur, "lavacracks");
+    glUniform1i(lavaSamplerHandlerBlur, 0);
+   
+    glActiveTexture(GL_TEXTURE0);
+    GLint texture_location = glGetUniformLocationARB(bumpmap->getPid(), "color_texture");
+    glUniform1i(texture_location, 0);
+
+    GLint normal_location = glGetUniformLocationARB(bumpmap->getPid(), "normal_texture");
+    glUniform1i(normal_location, 1);
 
 
     glBegin(GL_TRIANGLES);
@@ -143,14 +160,17 @@ void OBJObject::draw(DrawData& data)
     
     glEnd();
     
+    bloom->unbind();
     if (Window::lavaShader) {
-        bloom->unbind();
+        bumpmap->unbind();
         //blur->unbind();
         //blend->unbind();
     }
     
+    if (Window::mapShader) bumpmap->unbind();
+    
     lavacracks.unbind();
-    //bumpmap->unbind();
+    bump.unbind();
     
     glPopMatrix();
 }

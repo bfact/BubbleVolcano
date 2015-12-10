@@ -63,6 +63,8 @@ public:
     void drawLeaf(void);
     void drawMoreLeafeses(void);
     
+    void drawSystem(void);
+    
 };
 
 
