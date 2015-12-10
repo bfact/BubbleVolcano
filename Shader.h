@@ -43,6 +43,7 @@ protected:
 public:
     
 	Shader(const char *vert, const char *frag, bool isFile=true);
+    Shader();
 	~Shader();
     
 	void bind();

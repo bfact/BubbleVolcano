@@ -23,6 +23,8 @@
 
 GLhandleARB Shader::currentlyBoundShaderID = 0x0;
 
+Shader::Shader() {}
+
 Shader::Shader(const char *vert, const char *frag, bool isFile)
 {
 	if(isFile)

@@ -38,3 +38,4 @@ std::vector<Texture> Globals::textures;
 BubbleCollection Globals::bubbles;
 
 HeightMap Globals::map;
+ParticleSystem Globals::particles;

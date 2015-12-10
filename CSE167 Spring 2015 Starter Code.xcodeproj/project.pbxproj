@@ -11,6 +11,7 @@
 		93742F7F1C137B0800E54830 /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93742F7D1C137B0800E54830 /* ParticleSystem.cpp */; };
 		93AF75AE1C10125800912639 /* Bubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93AF75AC1C10125800912639 /* Bubble.cpp */; };
 		93AF75B11C10182D00912639 /* BubbleCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93AF75AF1C10182D00912639 /* BubbleCollection.cpp */; };
+		93C222771C1934A50053BD58 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93C222751C1934A50053BD58 /* Particle.cpp */; };
 		D42FFC351AAFCD9A006F8E9C /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42FFC341AAFCD9A006F8E9C /* GLUT.framework */; };
 		D42FFC371AAFCDA0006F8E9C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42FFC361AAFCDA0006F8E9C /* OpenGL.framework */; };
 		DF07AFC21BF28E3300A7919F /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF07AFC01BF28E3300A7919F /* Skybox.cpp */; };
@@ -60,16 +61,16 @@
 /* Begin PBXFileReference section */
 		932A52921C11631E00FF3967 /* HeightMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeightMap.cpp; sourceTree = SOURCE_ROOT; };
 		932A52931C11631E00FF3967 /* HeightMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightMap.h; sourceTree = SOURCE_ROOT; };
-		93742F7B1C12767000E54830 /* icesnow.ppm */ = {isa = PBXFileReference; lastKnownFileType = text; path = icesnow.ppm; sourceTree = "<group>"; };
-		93742F7C1C12767000E54830 /* icysnow.ppm */ = {isa = PBXFileReference; lastKnownFileType = text; path = icysnow.ppm; sourceTree = "<group>"; };
 		93742F7D1C137B0800E54830 /* ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystem.cpp; sourceTree = SOURCE_ROOT; };
 		93742F7E1C137B0800E54830 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = SOURCE_ROOT; };
-		93742F801C137D8F00E54830 /* particle.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particle.frag; sourceTree = "<group>"; };
-		93742F811C137D8F00E54830 /* particle.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particle.vert; sourceTree = "<group>"; };
 		93AF75AC1C10125800912639 /* Bubble.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bubble.cpp; sourceTree = SOURCE_ROOT; };
 		93AF75AD1C10125800912639 /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble.h; sourceTree = SOURCE_ROOT; };
 		93AF75AF1C10182D00912639 /* BubbleCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BubbleCollection.cpp; sourceTree = SOURCE_ROOT; };
 		93AF75B01C10182D00912639 /* BubbleCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleCollection.h; sourceTree = SOURCE_ROOT; };
+		93C222751C1934A50053BD58 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = SOURCE_ROOT; };
+		93C222761C1934A50053BD58 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = SOURCE_ROOT; };
+		93C2227B1C193A080053BD58 /* particle.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particle.frag; sourceTree = "<group>"; };
+		93C2227C1C193A080053BD58 /* particle.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particle.vert; sourceTree = "<group>"; };
 		D42FFC1E1AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CSE167 Spring 2015 Starter Code"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42FFC341AAFCD9A006F8E9C /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		D42FFC361AAFCDA0006F8E9C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -179,8 +180,6 @@
 		D42FFC151AAFC90E006F8E9C = {
 			isa = PBXGroup;
 			children = (
-				93742F7C1C12767000E54830 /* icysnow.ppm */,
-				93742F7B1C12767000E54830 /* icesnow.ppm */,
 				DFCEB3701C1410190051E9D9 /* GLSL */,
 				D42FFC201AAFC90E006F8E9C /* CSE167 Spring 2015 Starter Code */,
 				DF15DC1D1BE3FE2F00EEA3BA /* README.md */,
@@ -222,6 +221,8 @@
 				DF15DC231BE3FE2F00EEA3BA /* Texture.h */,
 				932A52921C11631E00FF3967 /* HeightMap.cpp */,
 				932A52931C11631E00FF3967 /* HeightMap.h */,
+				93C222751C1934A50053BD58 /* Particle.cpp */,
+				93C222761C1934A50053BD58 /* Particle.h */,
 				93742F7D1C137B0800E54830 /* ParticleSystem.cpp */,
 				93742F7E1C137B0800E54830 /* ParticleSystem.h */,
 				DF15DC2A1BE3FE2F00EEA3BA /* Window.cpp */,
@@ -347,8 +348,8 @@
 				DF1AA5CF1C100914001CAACD /* bloom.frag */,
 				DF1AA5D01C100920001CAACD /* blur.frag */,
 				DF1AA5D11C1009AA001CAACD /* blend.frag */,
-				93742F801C137D8F00E54830 /* particle.frag */,
-				93742F811C137D8F00E54830 /* particle.vert */,
+				93C2227B1C193A080053BD58 /* particle.frag */,
+				93C2227C1C193A080053BD58 /* particle.vert */,
 				DF1AA5E71C12AE5D001CAACD /* terrain.vert */,
 				DF1AA5E81C12AE5D001CAACD /* terrain.frag */,
 				DF1AA5E91C12BFE9001CAACD /* bumpmap.vert */,
@@ -429,6 +430,7 @@
 				DF15DC421BE3FE2F00EEA3BA /* Window.cpp in Sources */,
 				DF15DC3D1BE3FE2F00EEA3BA /* Sphere.cpp in Sources */,
 				DF15DC301BE3FE2F00EEA3BA /* Drawable.cpp in Sources */,
+				93C222771C1934A50053BD58 /* Particle.cpp in Sources */,
 				932A52941C11631E00FF3967 /* HeightMap.cpp in Sources */,
 				DF15DC3F1BE3FE2F00EEA3BA /* UpdateData.cpp in Sources */,
 				DF15DC321BE3FE2F00EEA3BA /* Globals.cpp in Sources */,
@@ -521,6 +523,8 @@
 		D42FFC281AAFC90E006F8E9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -528,6 +532,8 @@
 		D42FFC291AAFC90E006F8E9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

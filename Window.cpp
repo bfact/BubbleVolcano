@@ -137,6 +137,7 @@ void Window::displayCallback()
     glPopMatrix();
     
     Globals::volcano.draw(Globals::drawData);
+    Globals::particles.draw();
     
     
     //Globals::bubbles.drawEntireCollection();

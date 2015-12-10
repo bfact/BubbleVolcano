@@ -57,9 +57,10 @@ OBJObject::~OBJObject()
     deleteVector(Vector3*, colors);
 }
 
+/*
 void OBJObject::initTextures()
 {
-}
+} */
 
 
 void OBJObject::draw(DrawData& data)
@@ -76,15 +77,16 @@ void OBJObject::draw(DrawData& data)
     
     
     // Sean's Version
-    /*
+    
      Shader* bloom = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
      Shader* blur  = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
-     Shader* blend = new Shader(VERTEX_SEAN, FRAGMENT_SEAN); */
+     Shader* blend = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+    
     
     if (Window::lavaShader) {
         bloom->bind();
-        //blur->bind();
-        //blend->bind();
+        blur->bind();
+        blend->bind();
     }
     
     // to have your lava sampler get the lava texture, you need to do:
@@ -151,6 +153,7 @@ void OBJObject::parse(std::string& filename)
     std::vector<std::string> tokens;
     std::string token;
     std::vector<std::string> vertex1, vertex2, vertex3;  // face
+    
 
     int lineNum = 0;
 

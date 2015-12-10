@@ -29,6 +29,8 @@
 #define ROCK_SEAN "/Users/seanwenzel/GitHub/bubblevolcano/rock.ppm"
 #define GRASS_SEAN "/Users/seanwenzel/GitHub/bubblevolcano/grass.ppm"
 #define DIRT_SEAN "/Users/seanwenzel/GitHub/bubblevolcano/dirt.ppm"
+#define TERRAINVERTEX_SEAN "/Users/seanwenzel/GitHub/bubblevolcano/terrain.vert"
+#define TERRAINFRAGMENT_SEAN "/Users/seanwenzel/GitHub/bubblevolcano/terrain.frag"
 
 Texture snow;
 Texture rock;
@@ -43,6 +45,8 @@ HeightMap::HeightMap() {
     map[0][0] = map[0][256] = map[256][0] = map[256][256] = initialValue;
     float range = 10.0;
     diamondSquareAlgorithm(0, 0, 256, 256, range, 256);
+    
+    
 }
 
 /*
@@ -247,7 +251,7 @@ void HeightMap::draw() {
     glActiveTexture(GL_TEXTURE4);
     dirt.bind();
 
-    Shader* terrain = new Shader(TERRAINVERTEX, TERRAINFRAGMENT);
+    Shader* terrain = new Shader(TERRAINVERTEX_SEAN, TERRAINFRAGMENT_SEAN);
     terrain->bind();
     
     // to have your dirt sampler get the dirt texture, you need to do:

@@ -28,6 +28,8 @@ public:
     Matrix4& getMatrix(void);
     Matrix4& getInverseMatrix(void);
     
+    Vector3 getPosition(void);
+    
     void set(Vector3&, Vector3&, Vector3&);
     
     Vector3 getE(void);

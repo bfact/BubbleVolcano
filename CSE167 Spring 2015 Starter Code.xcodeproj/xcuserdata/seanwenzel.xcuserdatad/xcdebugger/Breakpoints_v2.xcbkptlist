@@ -9,14 +9,62 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BubbleCollection.h"
-            timestampString = "470864370.865512"
+            filePath = "Shader.cpp"
+            timestampString = "471300521.425458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "class BubbleCollection"
-            landmarkType = "3">
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "Shader::Shader(const char *vert, const char *frag, bool isFile)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shader::Shader(char const*, char const*, bool)"
+                  moduleName = "CSE167 Spring 2015 Starter Code"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwenzel/Github/bubblevolcano/Shader.cpp"
+                  timestampString = "471306513.248507"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shader::Shader(char const*, char const*, bool)"
+                  moduleName = "CSE167 Spring 2015 Starter Code"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwenzel/Github/bubblevolcano/Shader.cpp"
+                  timestampString = "471306513.249171"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Particle.cpp"
+            timestampString = "471422326.487888"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "Particle::draw()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,13 +73,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HeightMap.cpp"
-            timestampString = "471068526.268351"
+            filePath = "ParticleSystem.cpp"
+            timestampString = "471423860.867282"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "HeightMap::diamondSquareAlgorithm(unsigned x1,unsigned y1,unsigned x2,unsigned y2,float range, unsigned level)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "ParticleSystem::draw()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,45 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParticleSystem.cpp"
-            timestampString = "471043139.671875"
+            timestampString = "471423860.867282"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "ParticleSystem::ParticleSystem()"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "ParticleSystem::draw()"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ParticleSystem::ParticleSystem()"
-                  moduleName = "CSE167 Spring 2015 Starter Code"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seanwenzel/Github/bubblevolcano/ParticleSystem.cpp"
-                  timestampString = "471068551.605449"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "8">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ParticleSystem::ParticleSystem()"
-                  moduleName = "CSE167 Spring 2015 Starter Code"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seanwenzel/Github/bubblevolcano/ParticleSystem.cpp"
-                  timestampString = "471068551.605999"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "21">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -48,6 +48,8 @@ public:
     static BubbleCollection bubbles;
     
     static HeightMap map;
+    
+    static ParticleSystem particles;
 
 };
 

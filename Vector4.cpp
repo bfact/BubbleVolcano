@@ -38,6 +38,10 @@ void Vector4::set(float x, float y, float z, float w)
     m[3] = w;
 }
 
+void Vector4::set(int i, float value) {
+    m[i] = value;
+}
+
 float Vector4::get(int element)
 {
     return m[element];

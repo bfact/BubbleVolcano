@@ -28,6 +28,11 @@ Matrix4& Camera::getInverseMatrix()
     return ci;
 }
 
+Vector3 Camera::getPosition() {
+    Vector3 p = Vector3(c.get(3,0), c.get(3,1), c.get(3,2));
+    return p;
+}
+
 void Camera::update()
 {
     //Update the Camera Matrix using d, e, and up
