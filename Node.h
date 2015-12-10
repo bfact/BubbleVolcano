@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "Matrix4.h"
+#include "Vector3.h"
 #include "UpdateData.h"
 
 
@@ -22,9 +23,13 @@ public:
     Node(void);
     ~Node(void);
     
-    virtual void draw(Matrix4 C);
-    virtual void update(UpdateData&);
+    virtual void draw(Matrix4 C) = 0;
+    virtual void update() = 0;
     
+    void boundingBox(Matrix4);
+    
+    Vector3 center;
+    float radius;
     
 };
 

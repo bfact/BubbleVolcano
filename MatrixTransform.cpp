@@ -9,22 +9,25 @@
 #include "MatrixTransform.h"
 
 
+MatrixTransform::MatrixTransform()
+{
+    this->M.identity();
+}
+
 MatrixTransform::MatrixTransform(Matrix4 C)
 {
     this->M = C;
 }
 
-
 MatrixTransform::~MatrixTransform()
 {
-    children.clear();
-
 }
 
 void MatrixTransform::draw(Matrix4 C)
 {
-    M = C * M;
-    for(std::vector<Node*>::iterator it = children.begin(); it != children.end(); ++it) {
-        (*it)->draw(C);
-    }
+    Matrix4 CM = C * M;
+    Group::draw(CM);
+    //    for(std::vector<Node*>::iterator it = children.begin(); it != children.end(); ++it) {
+    //        (*it)->draw(CM);
+    //    }
 }

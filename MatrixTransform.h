@@ -15,19 +15,15 @@
 class MatrixTransform : public Group
 {
     
-protected:
-    
-    std::vector<Node*> children;
-    
 public:
     
     Matrix4 M;
     
+    MatrixTransform(void);
     MatrixTransform(Matrix4);
     ~MatrixTransform(void);
     
-    virtual void draw(Matrix4 C);
-    
+    void draw(Matrix4 C);
     
     
 };

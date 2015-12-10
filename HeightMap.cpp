@@ -251,7 +251,7 @@ void HeightMap::draw() {
     glActiveTexture(GL_TEXTURE4);
     dirt.bind();
 
-    Shader* terrain = new Shader(TERRAINVERTEX_SEAN, TERRAINFRAGMENT_SEAN);
+    Shader* terrain = new Shader(TERRAINVERTEX, TERRAINFRAGMENT);
     terrain->bind();
     
     // to have your dirt sampler get the dirt texture, you need to do:
@@ -332,18 +332,18 @@ void HeightMap::resetMap() {
 void HeightMap::initTextures()
 {
     // Brittany's version
-    /*
+    
     snow = Texture(SNOW);
     rock = Texture(ROCK);
     grass= Texture(GRASS);
     dirt = Texture(DIRT);
-    */
+    
     
     // Sean's version
-    
+    /*
      snow = Texture(SNOW_SEAN);
      rock = Texture(ROCK_SEAN);
      grass= Texture(GRASS_SEAN);
      dirt = Texture(DIRT_SEAN);
-    
+    */
 }

@@ -58,7 +58,7 @@ Skybox::~Skybox()
 
 void Skybox::initTextures()
 {
-    /*
+    
     // Brittany's Version
     if (!Window::clouds) {
         skybox_f = Texture(STARS_FRONT);
@@ -74,10 +74,11 @@ void Skybox::initTextures()
         skybox_d = Texture(CLOUDS_FRONT);
         skybox_l = Texture(CLOUDS_LEFT);
         skybox_r = Texture(CLOUDS_RIGHT);
-    } */
+    }
     
     
     // Sean's Version
+    /*
     if (!Window::clouds) {
         skybox_f = Texture(STARS_FRONT_SEAN);
         skybox_b = Texture(STARS_BACK_SEAN);
@@ -92,7 +93,7 @@ void Skybox::initTextures()
         skybox_d = Texture(CLOUDS_FRONT_SEAN);
         skybox_l = Texture(CLOUDS_LEFT_SEAN);
         skybox_r = Texture(CLOUDS_RIGHT_SEAN);
-    } 
+    } */
 }
 
 //----------------------------------------------------------------------------

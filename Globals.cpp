@@ -2,7 +2,6 @@
 #define VOLCANO "/Users/BrittanyFactura/Github/bubblevolcano/BubbleVolcano.obj"
 #define VOLCANO_SEAN "/Users/seanwenzel/Github/bubblevolcano/BubbleVolcano.obj"
 
-
 Camera Globals::camera;
 
 Cube Globals::cube(10.0);
@@ -25,7 +24,7 @@ UpdateData Globals::updateData;
 //OBJObject Globals::bear("/Users/BrittanyFactura/Desktop/Fall\ Quarter/CSE\ 167/project\ 1/bear.obj");
 
 
-OBJObject Globals::volcano(VOLCANO_SEAN);
+OBJObject Globals::volcano(VOLCANO);
 
 Drawable *Globals::objdraw = &volcano;
 
@@ -38,4 +37,10 @@ std::vector<Texture> Globals::textures;
 BubbleCollection Globals::bubbles;
 
 HeightMap Globals::map;
+
 ParticleSystem Globals::particles;
+
+LSystem Globals::tree(4.0);
+LSystem Globals::tree1(6.0);
+LSystem Globals::tree2(2.0);
+LSystem Globals::tree3(5.0);

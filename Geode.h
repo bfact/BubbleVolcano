@@ -11,19 +11,21 @@
 
 #include <stdio.h>
 #include "Matrix4.h"
+#include "Node.h"
 
 
-class Geode
+class Geode : public Node
 {
     
 public:
-    Matrix4 modelView;
+    //    Matrix4 modelView;
     
     Geode();
     ~Geode();
     
+    virtual void render() = 0;
     void draw(Matrix4 C);
-    virtual void render(Matrix4);
+    void update();
     
 };
 

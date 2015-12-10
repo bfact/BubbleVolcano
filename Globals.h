@@ -19,6 +19,7 @@
 #include "Bubble.h"
 #include "HeightMap.h"
 #include "ParticleSystem.h"
+#include "LSystem.h"
 
 class Globals
 {
@@ -43,7 +44,7 @@ public:
     static DirectionalLight directionlight;
     static PointLight pointlight;
     static SpotLight spotlight;
-    
+
     static std::vector<Texture> textures;
     static BubbleCollection bubbles;
     
@@ -51,6 +52,11 @@ public:
     
     static ParticleSystem particles;
 
+    //LSystem
+    static LSystem tree;
+    static LSystem tree1;
+    static LSystem tree2;
+    static LSystem tree3;
 };
 
 #endif

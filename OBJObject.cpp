@@ -57,10 +57,11 @@ OBJObject::~OBJObject()
     deleteVector(Vector3*, colors);
 }
 
-/*
 void OBJObject::initTextures()
 {
-} */
+    //    lavacracks = Texture(LAVACRACKS_SEAN);
+    lavacracks = Texture(LAVACRACKS);
+}
 
 
 void OBJObject::draw(DrawData& data)
@@ -71,28 +72,39 @@ void OBJObject::draw(DrawData& data)
     glPushMatrix();
     glMultMatrixf(toWorld.ptr());
 
-    glActiveTexture(GL_TEXTURE1);
+    glActiveTexture(GL_TEXTURE0);
     lavacracks.bind();
     //bumpmap->bind();
     
+    
+    // Brittany's Version
+    Shader* bloom = new Shader(VERTEX, BLOOMFRAGMENT);
+//    Shader* blur  = new Shader(VERTEX, BLURFRAGMENT);
+    Shader* blend = new Shader(VERTEX, BLENDFRAGMENT);
+    
+    
+    Shader* bumpmap = new Shader(BUMPVERTEX, BUMPFRAGMENT);
+    
+    /*
     
     // Sean's Version
     
      Shader* bloom = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
      Shader* blur  = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
      Shader* blend = new Shader(VERTEX_SEAN, FRAGMENT_SEAN);
+     */
     
+    //bumpmap->bind();
     
     if (Window::lavaShader) {
         bloom->bind();
-        blur->bind();
-        blend->bind();
+        //blend->bind();
     }
     
     // to have your lava sampler get the lava texture, you need to do:
     GLhandleARB programHandle = bloom->getPid();
     GLint lavaSamplerHandler = glGetUniformLocationARB(programHandle, "lavacracks");
-    glUniform1i(lavaSamplerHandler, 1);
+    glUniform1i(lavaSamplerHandler, 0);
     
     //printf("Lavacracks texture id %u \n", lavacracks.id);
 
@@ -129,15 +141,15 @@ void OBJObject::draw(DrawData& data)
     
     glEnd();
     
-    lavacracks.unbind();
-    
     if (Window::lavaShader) {
         bloom->unbind();
         //blur->unbind();
         //blend->unbind();
     }
     
+    lavacracks.unbind();
     //bumpmap->unbind();
+    
     glPopMatrix();
 }
 
@@ -280,12 +292,6 @@ void OBJObject::getHalfSize()
     float halfSizeY = (maxY - minY)/2;
     float halfSizeZ = (maxZ - minZ)/2;
     halfSizeMAX = fmax(fmax(halfSizeX, halfSizeY), halfSizeZ);
-}
-
-void OBJObject::initTextures()
-{
-    lavacracks = Texture(LAVACRACKS_SEAN);
-    //lavacracks = Texture(LAVACRACKS);
 }
 
 //Split functions from the interwebs

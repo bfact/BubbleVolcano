@@ -7,6 +7,8 @@
 //
 
 #include "Node.h"
+#include "Vector3.h"
+#include "Matrix4.h"
 
 Node::Node()
 {
@@ -20,12 +22,7 @@ Node::~Node()
 }
 
 
-void Node::draw(Matrix4 C)
-{
-    
-}
-
-void Node::update(UpdateData& data)
+void Node::boundingBox(Matrix4 C)
 {
     
 }

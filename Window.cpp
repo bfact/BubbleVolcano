@@ -16,6 +16,7 @@
 #include "Skybox.h"
 #include "BezierCurve.h"
 #include "ParticleSystem.h"
+#include "LSystem.h"
 
 int Window::width  = 512;   //Set window width in pixels here
 int Window::height = 512;   //Set window height in pixels here
@@ -34,6 +35,9 @@ Skybox *starbox = new Skybox();
 bool Window::lavaShader = true;
 bool Window::clouds = false;
 
+float x = 25.0, y = 10.0, z = 0.0;
+bool simulate = false;
+
 using namespace std;
 
 void Window::initialize(void)
@@ -44,7 +48,7 @@ void Window::initialize(void)
     Globals::light.quadraticAttenuation = 0.02;
     
     //Setup camera position
-    Globals::camera.setE(Vector3(48.8881, 18.2326, 82.8526));
+    Globals::camera.setE(Vector3(84.004, 29.0696, 41.0526));  //48.8881, 18.2326, 82.8526
     
     //Setup size
     Matrix4 setup;
@@ -62,6 +66,17 @@ void Window::initialize(void)
     starbox->initTextures();
     
     //Globals::map.printMap();
+    
+    int level = 3;
+    Globals::tree.system = new vector<string>();
+    Globals::tree1.system = new vector<string>();
+    for (int i = 0; i <= level; i++) {
+        Globals::tree.structure();
+        Globals::tree1.structure1();
+        Globals::tree2.structure2();
+        Globals::tree3.structure3();
+    }
+
 
 }
 
@@ -75,7 +90,6 @@ void Window::idleCallback()
     
     //Call the display routine to draw the cube
     displayCallback();
-    
     
 }
 
@@ -96,6 +110,7 @@ void Window::reshapeCallback(int w, int h)
 // Callback method called by GLUT when window readraw is necessary or when glutPostRedisplay() was called.
 void Window::displayCallback()
 {
+
     //Clear color and depth buffers
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
@@ -115,7 +130,6 @@ void Window::displayCallback()
     //This will convert all world coordiantes into camera coordiantes
     glLoadMatrixf(Globals::camera.getInverseMatrix().ptr());
     
-    
     //Bind the light to slot 0.  We do this after the camera matrix is loaded so that
     //the light position will be treated as world coordiantes
     //(if we didn't the light would move with the camera, why is that?)
@@ -127,7 +141,7 @@ void Window::displayCallback()
     glEnable(GL_LIGHTING);
     
     glPushMatrix();
-    glTranslatef(0, 70.00, 0);
+    glTranslatef(0, 60.00, 0);
     starbox->draw();
     glPopMatrix();
 
@@ -139,11 +153,57 @@ void Window::displayCallback()
     Globals::volcano.draw(Globals::drawData);
     Globals::particles.draw();
     
+
+    if (simulate && x <= 80 && y <= 50 && z <= 60) {
+        x += 0.15;
+        y += 0.10;
+        z += 0.15;
+        Globals::camera.setE(Vector3(x, y, z));
+        //Globals::camera.e.print("camera's e matrix");
+    }
+
+    
+
+    glPushMatrix();
+    glTranslatef(7.0, -7.0, 0.0);
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            Globals::tree.drawTree();
+        }
+    }
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(14.0, -3.0, 0.0);
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            Globals::tree1.drawTree1();
+        }
+    }
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(-7.0, -3.0, 5.0);
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            Globals::tree2.drawTree2();
+        }
+    }
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(-7.0, -3.0, 10.0);
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+//            Globals::tree3.drawTree3();
+        }
+    }
+    glPopMatrix();
+
     
     //Globals::bubbles.drawEntireCollection();
     //Globals::bubbles.updateEntireCollection();
 
-    
     //ParticleSystem* particles = new ParticleSystem();
     //particles->draw();
 
@@ -247,16 +307,14 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
             Window::clouds = !Window::clouds;
             starbox->initTextures();
             break;
+            
         case 'g':
             Globals::map.generateNewHeightMap();
-        
-//        case 's':    // scale down (zoom out)
-//            fov += 0.5;
-//            break;
-//            
-//        case 'S':    // scale up (zoom in)
-//            fov -= 0.5;
-//            break;
+            break;
+            
+        case 'b':
+            simulate = !simulate;
+            break;
             
     }
 }
@@ -297,7 +355,7 @@ void Window::processMouseActiveMotion(int x, int y)
     
     switch (Movement) {
         case GLUT_LEFT_BUTTON: {   // rotation
-            std::cout << "GLU LEFT BUTTON" << std::endl;
+            //std::cout << "GLU LEFT BUTTON" << std::endl;
             currPoint = trackBallMapping(x, y); //map mouse to logical sphere location
             currPoint = currPoint.normalize();
             lastPoint = lastPoint.normalize();
@@ -318,7 +376,7 @@ void Window::processMouseActiveMotion(int x, int y)
             break;
         }
         case GLUT_RIGHT_BUTTON: {   // x/y translation
-            std::cout << "GLU RIGHT BUTTON" << std::endl;
+            //std::cout << "GLU RIGHT BUTTON" << std::endl;
             currPoint = Vector3(x, y, 0);
             direction.set((currPoint[0] - lastPoint[0]) *  0.001,
                           (currPoint[1] - lastPoint[1]) * -0.001, 0);
@@ -330,7 +388,7 @@ void Window::processMouseActiveMotion(int x, int y)
         }
             
         case 3:     // mouse wheel -- scale
-            std::cout << "MOUSE WHEEL" << std::endl;
+            //std::cout << "MOUSE WHEEL" << std::endl;
             currPoint = Vector3(x, y, 0);
             direction.set(0, 0, (currPoint[1] - lastPoint[1]) * -0.001);
             Matrix4 lol;

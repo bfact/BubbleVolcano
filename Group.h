@@ -18,11 +18,6 @@
 
 class Group : public Node
 {
-    
-protected:
-    
-    std::vector<Node*> children;
-    
 public:
     
     Group(void);
@@ -32,8 +27,9 @@ public:
     void removeChild(Node*);
     
     virtual void draw(Matrix4 C);
-    virtual void update(UpdateData&);
- 
+    virtual void update();
+    std::vector<Node*> children;
+    
     
     
 };
