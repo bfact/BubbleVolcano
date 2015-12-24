@@ -46,7 +46,7 @@ HeightMap::HeightMap() {
     map[0][0] = map[0][256] = map[256][0] = map[256][256] = initialValue;
     float range = 10.0;
     diamondSquareAlgorithm(0, 0, 256, 256, range, 256);
-    
+    evalNormals();   
     
 }
 
@@ -126,6 +126,7 @@ void HeightMap::diamondSquareAlgorithm(unsigned x1,unsigned y1,unsigned x2,unsig
     }
     Globals::volcanoHeightDisplacement = min-8.55664;
     findMinAndMax();
+    evalNormals();
 }
 
 void HeightMap::findMinAndMax() {
@@ -215,29 +216,38 @@ void HeightMap::draw() {
     
     for (int i = 0; i < 256; i++) {
         for (int j = 0; j < 256; j++) {
+            Vector3 n0 = normals[i][j];
+            Vector3 n1 = normals[i][j + 1];
+            Vector3 n2 = normals[i + 1][j + 1];
+            Vector3 n3 = normals[i + 1][j];
+            
             glMultiTexCoord2f(GL_TEXTURE2, 0.0, 0.0);
             glMultiTexCoord2f(GL_TEXTURE3, 0.0, 0.0);
             glMultiTexCoord2f(GL_TEXTURE4, 0.0, 0.0);
             //glTexCoord2f(0, 0);
             glVertex3f(i, map[i][j], j);
+            //glNormal3f(n0[0], n0[1], n0[2]);
             
             glMultiTexCoord2f(GL_TEXTURE2, 0.0, 1.0);
             glMultiTexCoord2f(GL_TEXTURE3, 0.0, 1.0);
             glMultiTexCoord2f(GL_TEXTURE4, 0.0, 1.0);
             //glTexCoord2f(0, 1);
             glVertex3f(i, map[i][j+1], j+1);
-            
+            //glNormal3f(n1[0], n1[1], n1[2]);
+
             glMultiTexCoord2f(GL_TEXTURE2, 1.0, 1.0);
             glMultiTexCoord2f(GL_TEXTURE3, 1.0, 1.0);
             glMultiTexCoord2f(GL_TEXTURE4, 1.0, 1.0);
             //glTexCoord2f(1, 1);
             glVertex3f(i+1, map[i+1][j+1], j+1);
-            
+            //glNormal3f(n2[0], n2[1], n2[2]);
+
             glMultiTexCoord2f(GL_TEXTURE2, 1.0, 0.0);
             glMultiTexCoord2f(GL_TEXTURE3, 1.0, 0.0);
             glMultiTexCoord2f(GL_TEXTURE4, 1.0, 0.0);
             //glTexCoord2f(1, 0);
             glVertex3f(i+1, map[i+1][j], j);
+            //glNormal3f(n2[0], n2[1], n2[2]);
 
         }
     }
@@ -286,4 +296,58 @@ void HeightMap::initTextures()
      grass= Texture(GRASS_SEAN);
      dirt = Texture(DIRT_SEAN);
     */
+}
+
+void HeightMap::evalNormals()
+{
+    
+    for (int i = 0; i < 257; i++) {
+        for (int j = 0; j < 257; j++) {
+            
+            Vector3 v0 = Vector3(i, map[i][j], j);
+            Vector3 v1 = Vector3(i, map[i][j+1], j+1);
+            Vector3 v2 = Vector3(i+1, map[i+1][j+1], j+1);
+            Vector3 v3 = Vector3(i+1, map[i+1][j], j);
+
+            Vector3 vn0 = Vector3(v1 - v0);
+            Vector3 vn1 = Vector3(v2 - v0);
+            vn0.normalize();
+            vn1.normalize();
+            
+            //vn0.print("vn0");
+            //vn1.print("vn1");
+            
+            Vector3 normal = (vn0.cross(vn1)).normalize();
+            
+            normals[i][j] = normal;
+           
+            
+            //normals[i][j].print("Height map normals");
+            
+        }
+    }
+}
+
+void HeightMap::smoothTerrain(float k)
+{
+    
+    int i, j;
+    
+    for(i = 0; i < 256;i++)
+        for(j = 1; j < 256;j++)
+            map[i][j] =  map[i][j] * (1 - k) + map[i][j-1] * k;
+    
+    for(i = 1; i < 256;i++)
+        for(j = 0; j < 256;j++)
+            map[i][j] =  map[i][j] * (1-k) + map[i-1][j] * k;
+    
+    for(i = 0; i < 256; i++)
+        for(j= 256-1;j>-1;j--)
+            map[i][j] =  map[i][j] * (1-k) + map[i][j+1] * k;
+    
+    for(i = 256-2; i < -1; i--)
+        for(j = 0 ;j < 256; j++)
+            map[i][j] = map[i][j] * (1-k) + map[i+1][j] * k;
+    
+    
 }

@@ -14,6 +14,8 @@ void main()
     gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
     vertexPos = gl_Position;
     
+    //normal.xyz = gl_Normal;
+    
     //normal.xyz = normalize(gl_Normal);
     
     normal.xyz = normalize(gl_NormalMatrix * gl_Normal);

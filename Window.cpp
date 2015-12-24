@@ -313,7 +313,10 @@ void Window::processNormalKeys(unsigned char key, int x, int y)
         case 'v':
             secondSimulate = !secondSimulate;
             break;
-            
+        
+        case 'n':
+            Globals::camera.setE(Vector3(74.0625, 25.3819, 25.0715));
+            break;
     }
 }
 
@@ -327,30 +330,30 @@ void Window::drawTrees()
     Globals::tree.drawTree();
     glPopMatrix();
     
-    glPushMatrix();
-    glTranslatef(54.0, -3.0, 13.0);
-    Globals::tree.drawTree();
-    glPopMatrix();
-    
-    glPushMatrix();
-    glTranslatef(52.0, -3.0, 15.0);
-    Globals::tree.drawTree();
-    glPopMatrix();
-    
-    glPushMatrix();
-    glTranslatef(56.0, -3.0, 17.0);
-    Globals::tree.drawTree();
-    glPopMatrix();
+//    glPushMatrix();
+//    glTranslatef(54.0, -3.0, 13.0);
+//    Globals::tree.drawTree();
+//    glPopMatrix();
+//    
+//    glPushMatrix();
+//    glTranslatef(52.0, -3.0, 15.0);
+//    Globals::tree.drawTree();
+//    glPopMatrix();
+//    
+//    glPushMatrix();
+//    glTranslatef(56.0, -3.0, 17.0);
+//    Globals::tree.drawTree();
+//    glPopMatrix();
     
     glPushMatrix();
     glTranslatef(-30.0, 20.0, 20.0);
     Globals::tree1.drawTree1();
     glPopMatrix();
     
-    glPushMatrix();
-    glTranslatef(-20.0, 22.0, 35.0);
-    Globals::tree1.drawTree1();
-    glPopMatrix();
+//    glPushMatrix();
+//    glTranslatef(-20.0, 22.0, 35.0);
+//    Globals::tree1.drawTree1();
+//    glPopMatrix();
     
 //    glPushMatrix();
 //    glTranslatef(-40.0, 20.0, 40.0);
@@ -367,29 +370,29 @@ void Window::drawTrees()
     Globals::tree2.drawTree2();
     glPopMatrix();
     
-    glPushMatrix();
-    glTranslatef(-16, 3.0, 0);
-    Globals::tree2.drawTree2();
-    glPopMatrix();
-    
-    glPushMatrix();
-    glTranslatef(-12.0, 3.0, 5.0);
-    Globals::tree2.drawTree2();
-    glPopMatrix();
-    
-    glPushMatrix();
-    glTranslatef(-16, 3.0, 0);
-    Globals::tree2.drawTree2();
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(-12.0, 3.0, 5.0);
-    Globals::tree2.drawTree2();
-    glPopMatrix();
-    
-    glPushMatrix();
-    glTranslatef(-16, 3.0, 0);
-    Globals::tree2.drawTree2();
-    glPopMatrix();
+//    glPushMatrix();
+//    glTranslatef(-16, 3.0, 0);
+//    Globals::tree2.drawTree2();
+//    glPopMatrix();
+//    
+//    glPushMatrix();
+//    glTranslatef(-12.0, 3.0, 5.0);
+//    Globals::tree2.drawTree2();
+//    glPopMatrix();
+//    
+////    glPushMatrix();
+////    glTranslatef(-16, 3.0, 0);
+////    Globals::tree2.drawTree2();
+////    glPopMatrix();
+////    glPushMatrix();
+////    glTranslatef(-12.0, 3.0, 5.0);
+////    Globals::tree2.drawTree2();
+////    glPopMatrix();
+////    
+////    glPushMatrix();
+////    glTranslatef(-16, 3.0, 0);
+////    Globals::tree2.drawTree2();
+////    glPopMatrix();
     
     /*
     glPushMatrix();

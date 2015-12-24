@@ -12,10 +12,12 @@
 #include <stdio.h>
 #include "Texture.h"
 #include "Shader.h"
+#include "Vector3.h"
 
 class HeightMap {
 private:
     float map[257][257];
+    Vector3 normals[257][257];
     float min;
     float max;
     
@@ -32,7 +34,8 @@ public:
     void resetMap();
     void findMinAndMax();
     void initTextures();
-    
+    void evalNormals();
+    void smoothTerrain(float);
 };
 
 #endif /* HeightMap_h */
