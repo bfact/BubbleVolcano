@@ -20,11 +20,10 @@ void main(void) {
     vec4 snowColor = texture2D(snow, gl_TexCoord[2].st);
     vec4 rockColor = texture2D(rock, gl_TexCoord[3].st);
     vec4 dirtColor = texture2D(dirt, gl_TexCoord[4].st);
-    
-    
+
     //----- Height-based texturing -----//
     
-    
+    /*
     float height = normal.w;
     
     vec4 mixColor = mix(snowColor, rockColor, dirtColor);
@@ -62,39 +61,39 @@ void main(void) {
     else
         gl_FragColor = mix(dirtColor, snowColor, 0.95);
      
-     
+     */
     
     
     //----- TO DO:: SLOPE -----//
     
-     //You simply subtract one from the Y (height) value of the normal.
-     //This will give you a value between 0.0f (completely flat terrain)
-     //1.0f (terrain pointing straight up at 90 degrees).
+    //You simply subtract one from the Y (height) value of the normal.
+    //This will give you a value between 0.0f (completely flat terrain)
+    //1.0f (terrain pointing straight up at 90 degrees).
 
-//    height = normal.y;
-//    float slope = 1.0 - height;
-//    
-//    if (slope < 0.0) slope = slope * 1.0;
-//    
-//    if (slope < 0.2)
-//        gl_FragColor = dirtColor;
-//
-//
-//    else if ((slope >= 0.2) && (slope < 0.5))
-//    {
-//        blendAmount = (slope - 0.2) * (1.0 / (0.5 - 0.2));
-//        gl_FragColor = mix(dirtColor, rockColor, blendAmount);
-//    }
-//
-//    else if ((slope >= 0.5) || (normal.w > 20.0))
-//    {
-//        blendAmount = (slope - 0.5) * (1.0 / 0.5);
-//        gl_FragColor = mix(dirtColor, snowColor, 1.0);
-//    }
+    float height = normal.y;
+    float slope = 1.0 - height;
+    
+    if (slope < 0.0) slope = slope * 1.0;
+    
+    if (slope < 0.2)
+        gl_FragColor = dirtColor;
 
-//    
-//    if (slope < 0.2) gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
-//    if ((slope >= 0.2) && (slope < 0.5)) gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0);
-//    if (slope >= 0.5) gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+
+    else if ((slope >= 0.2) && (slope < 0.5))
+    {
+        blendAmount = (slope - 0.2) * (1.0 / (0.5 - 0.2));
+        gl_FragColor = mix(dirtColor, rockColor, blendAmount);
+    }
+
+    else if ((slope >= 0.5) || (normal.w > 20.0))
+    {
+        blendAmount = (slope - 0.5) * (1.0 / 0.5);
+        gl_FragColor = mix(dirtColor, snowColor, 1.0);
+    }
+
+    //Debugging:
+    //if (slope < 0.2) gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+    //if ((slope >= 0.2) && (slope < 0.5)) gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0);
+    //if (slope >= 0.5) gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 
 }

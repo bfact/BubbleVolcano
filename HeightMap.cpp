@@ -226,28 +226,28 @@ void HeightMap::draw() {
             glMultiTexCoord2f(GL_TEXTURE4, 0.0, 0.0);
             //glTexCoord2f(0, 0);
             glVertex3f(i, map[i][j], j);
-            //glNormal3f(n0[0], n0[1], n0[2]);
+            glNormal3f(n0[0], n0[1], n0[2]);
             
             glMultiTexCoord2f(GL_TEXTURE2, 0.0, 1.0);
             glMultiTexCoord2f(GL_TEXTURE3, 0.0, 1.0);
             glMultiTexCoord2f(GL_TEXTURE4, 0.0, 1.0);
             //glTexCoord2f(0, 1);
             glVertex3f(i, map[i][j+1], j+1);
-            //glNormal3f(n1[0], n1[1], n1[2]);
+            glNormal3f(n1[0], n1[1], n1[2]);
 
             glMultiTexCoord2f(GL_TEXTURE2, 1.0, 1.0);
             glMultiTexCoord2f(GL_TEXTURE3, 1.0, 1.0);
             glMultiTexCoord2f(GL_TEXTURE4, 1.0, 1.0);
             //glTexCoord2f(1, 1);
             glVertex3f(i+1, map[i+1][j+1], j+1);
-            //glNormal3f(n2[0], n2[1], n2[2]);
+            glNormal3f(n2[0], n2[1], n2[2]);
 
             glMultiTexCoord2f(GL_TEXTURE2, 1.0, 0.0);
             glMultiTexCoord2f(GL_TEXTURE3, 1.0, 0.0);
             glMultiTexCoord2f(GL_TEXTURE4, 1.0, 0.0);
             //glTexCoord2f(1, 0);
             glVertex3f(i+1, map[i+1][j], j);
-            //glNormal3f(n2[0], n2[1], n2[2]);
+            glNormal3f(n2[0], n2[1], n2[2]);
 
         }
     }
